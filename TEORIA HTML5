@@ -1,0 +1,290 @@
+CHAT FEZ E UNI  
+   <!DOCTYPE html>
+
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Study2Gether | Plataforma de Estudos Colaborativos</title>
+
+    <meta name="description" content="Plataforma de estudos colaborativos com salas virtuais, biblioteca de materiais e sistema de gamificação.">
+
+    <meta name="keywords" content="estudos, colaboração, faculdade, pomodoro, biblioteca acadêmica">
+
+    <meta name="author" content="Seu Nome / Equipe Study2Gether">
+
+    <link rel="icon" href="assets/img/logo-icon.png" type="image/png">
+
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+
+    </head>
+<body>
+    <header>
+        <h1>Study2Gether</h1>
+        
+        <nav aria-label="Menu Principal">
+            <ul>
+                <li><a href="#sala">Sala de Estudo</a></li>
+                <li><a href="#biblioteca">Biblioteca</a></li>
+                <li><a href="#calendario">Calendário</a></li>
+                <li><a href="#duvidas">Postar Dúvida</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        
+        <section id="sala">
+            <header>
+                <h2>Sala: Grupo de Cálculo II</h2>
+                <p>Timer Pomodoro: <strong>25:00</strong></p>
+            </header>
+
+            <div class="interacao-visual">
+                <p>[Área da Lousa Compartilhada]</p>
+            </div>
+
+            <section class="chat">
+                <h3>Chat da Turma</h3>
+                <article>
+                    <header>
+                        <strong>João Silva</strong> <time datetime="2026-02-11T14:30">14:30</time>
+                    </header>
+                    <p>Alguém conseguiu resolver a questão 4 da lista?</p>
+                </article>
+            </section>
+
+            <aside>
+                <h3>Participantes Online</h3>
+                <ul>
+                    <li>João Silva</li>
+                    <li>Maria Oliveira</li>
+                </ul>
+            </aside>
+        </section>
+
+        <hr> <section id="biblioteca">
+            <h2>Biblioteca de Materiais</h2>
+            <article>
+                <h4>Resumo de Derivadas.pdf</h4>
+                <p>Postado por: Prof. Ricardo</p>
+                <button type="button">Download</button>
+            </article>
+        </section>
+
+        <hr>
+
+        <section id="calendario">
+            <h2>Meu Cronograma</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Dom</th> <th>Seg</th> <th>Ter</th> <th>Qua</th> <th>Qui</th> <th>Sex</th> <th>Sáb</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td> <td>2</td> <td>3</td>
+                        <td>
+                            4 <br>
+                            <article><small>Prova de Cálculo</small></article>
+                        </td>
+                        <td>5</td> <td>6</td> <td>7</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <hr>
+
+        <section id="duvidas">
+            <form action="/enviar-duvida" method="POST">
+                <fieldset>
+                    <legend>Nova Pergunta</legend>
+                    
+                    <label for="titulo">Título da Dúvida:</label>
+                    <input type="text" id="titulo" name="titulo" placeholder="Ex: Dúvida em Integral" required>
+
+                    <label for="materia">Disciplina:</label>
+                    <select id="materia" name="materia" required>
+                        <option value="">Selecione...</option>
+                        <option value="calculo">Cálculo II</option>
+                        <option value="algoritmos">Algoritmos</option>
+                    </select>
+
+                    <label for="descricao">Descrição Detalhada:</label>
+                    <textarea id="descricao" name="descricao" rows="4" required></textarea>
+
+                    <button type="submit">Publicar Dúvida</button>
+                </fieldset>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <nav aria-label="Links Institucionais">
+            <ul>
+                <li><a href="/privacidade">Política de Privacidade</a></li>
+                <li><a href="/termos">Termos de Uso</a></li>
+            </ul>
+        </nav>
+
+        <address>
+            Suporte: <a href="mailto:ajuda@study2gether.com">ajuda@study2gether.com</a>
+        </address>
+
+        <small>&copy; 2026 Study2Gether - Todos os direitos reservados.</small>
+    </footer>
+
+</body>
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+CHAT UNIU
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <title>Study2Gether | Plataforma de Estudos Colaborativos</title>
+    <meta name="description" content="Plataforma de estudos com salas virtuais, biblioteca e gamificação.">
+    <meta name="author" content="Equipe Study2Gether">
+    <link rel="icon" href="assets/img/logo-icon.png" type="image/png">
+
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <header>
+        <h1>Study2Gether</h1>
+        <nav aria-label="Menu Principal">
+            <ul>
+                <li><a href="#sala">Sala de Estudo</a></li>
+                <li><a href="#biblioteca">Biblioteca</a></li>
+                <li><a href="#calendario">Calendário</a></li>
+                <li><a href="#duvidas">Postar Dúvida</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        
+        <section id="sala">
+            <header>
+                <h2>Sala: Grupo de Cálculo II</h2>
+                <p>Timer Pomodoro: <strong>25:00</strong></p>
+            </header>
+
+            <div class="interacao-visual" aria-label="Lousa de estudo">
+                <p>[Área de Conteúdo Visual da Sala]</p>
+            </div>
+
+            <section class="chat">
+                <h3>Mensagens Recentes</h3>
+                <article>
+                    <header>
+                        <strong>João Silva</strong> 
+                        <time datetime="2026-02-11T14:30">14:30</time>
+                    </header>
+                    <p>Alguém conseguiu resolver a questão 4 da lista?</p>
+                </article>
+            </section>
+
+            <aside>
+                <h3>Estudantes Online</h3>
+                <ul>
+                    <li>João Silva</li>
+                    <li>Maria Oliveira</li>
+                </ul>
+            </aside>
+        </section>
+
+        <hr>
+
+        <section id="biblioteca">
+            <h2>Biblioteca de Materiais</h2>
+            <article>
+                <h4>Resumo de Derivadas.pdf</h4>
+                <p>Postado por: Prof. Ricardo</p>
+                <button type="button">Baixar Material</button>
+            </article>
+        </section>
+
+        <hr>
+
+        <section id="calendario">
+            <h2>Meu Cronograma</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Dom</th> <th>Seg</th> <th>Ter</th> <th>Qua</th> <th>Qui</th> <th>Sex</th> <th>Sáb</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td> <td>2</td> <td>3</td>
+                        <td>
+                            4 <br>
+                            <article><small>Prova de Cálculo</small></article>
+                        </td>
+                        <td>5</td> <td>6</td> <td>7</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <hr>
+
+        <section id="duvidas">
+            <form action="/enviar" method="POST">
+                <fieldset>
+                    <legend>Publicar Nova Dúvida</legend>
+                    
+                    <label for="titulo">Título Curto:</label>
+                    <input type="text" id="titulo" name="titulo" placeholder="Ex: Dúvida em Integrais" required>
+
+                    <label for="materia">Disciplina:</label>
+                    <select id="materia" name="materia" required>
+                        <option value="">Selecione...</option>
+                        <option value="calculo">Cálculo II</option>
+                        <option value="algoritmos">Algoritmos</option>
+                    </select>
+
+                    <label for="descricao">Explicação da Dúvida:</label>
+                    <textarea id="descricao" name="descricao" rows="4" required placeholder="Descreva sua dificuldade..."></textarea>
+
+                    <button type="submit">Enviar para a Comunidade</button>
+                </fieldset>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <nav aria-label="Links de Segurança">
+            <ul>
+                <li><a href="/privacidade">Privacidade</a></li>
+                <li><a href="/termos">Termos</a></li>
+            </ul>
+        </nav>
+
+        <address>
+            Suporte: <a href="mailto:ajuda@study2gether.com">ajuda@study2gether.com</a>
+        </address>
+
+        <small>&copy; 2026 Study2Gether - Todos os direitos reservados.</small>
+    </footer>
+
+</body>
+</html>

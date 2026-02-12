@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+
+<title>Study2Gether | Plataforma de Estudos Colaborativos</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Plataforma de estudos colaborativos com salas virtuais, biblioteca de materiais e sistema de gamificação.">
+
+</head>
+
+<body>
+
+  <header>
+    <h1>Study2Gether</h1>
+    <nav aria-label="Menu Principal">
+       <ul>
+          <li><a href="#sala">Sala de Estudo</a>
+          </li><li><a href="#biblioteca">Biblioteca</a></li>
+          <li><a href="#calendario">Calendário</a></li>
+          <li><a href="#duvidas">Postar Dúvida</a></li>
+       </ul>
+    </nav>
+  </header>
+
+<main>
+
+  <section id="Biblioteca">
+    <header>
+      <h2>Sala: Biblioteca de Materiais</h2>
+    </header>
+    <p>[Acesse documentos, livros, resumos e muto mais!]</p>
+  </section>
+
+  <section id="sala">
+    <header>
+      <h2>Sala:Salas de Estudo Virtuais</h2>
+    </header>
+     <p>[Ambiente de estudo em tempo real]</p>
+</section> <section id="duvidas">
+<header>
+<h2>Sala:Dúvidas da Comunidade</h2>
+ <form action="/enviar-duvida" method="POST">
+<fieldset>
+ <legend>Nova Pergunta</legend>
+ <label for="titulo">Título da Dúvida:</label>
+<input type="text" id="titulo" name="titulo" placeholder="Ex: Dúvida em Integral" required>
+<label for="materia">Disciplina:</label>
+<select id="materia" name="materia" required>
+<option value="">Selecione...</option>
+<option value="calculo">Cálculo II</option>
+ <option value="algoritmos">Algoritmos</option>
+</select>
+<label for="descricao">Descrição Detalhada:</label>
+<textarea id="descricao" name="descricao" rows="4" required></textarea>
+<button type="submit">Publicar Dúvida</button>
+</fieldset>
+</form>
+</section>
+</main>
+<footer>
+<p>&copy; 2026 Study2Gether - Todos os direitos reservados.</p>
+</footer>
+
+</body>
+
+</html>

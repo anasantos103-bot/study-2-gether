@@ -9,11 +9,11 @@ Objetivo do Projeto
 > Criar um ambiente virtual que incentive o aprendizado coletivo, reduza o isolamento acadêmico e facilite o acesso a materiais de estudo confiáveis, promovendo organização, colaboração e engajamento entre estudantes.
 ------------------------------------------------------------------------------------------------------------------------------
 Funcionalidades Principais
-> Sistema de Perguntas e Respostas**
-> Biblioteca Compartilhada
-> Salas de Estudo Virtuais
-> Calendário Acadêmico
-> Gamificação e Reputação
+> Sistema de Perguntas e Respostas,
+> Biblioteca Compartilhada,
+> Salas de Estudo Virtuais,
+> Calendário Acadêmico,
+> Gamificação e Reputaç.ão
 ------------------------------------------------------------------------------------------------------------------------------
 Problemas que o Projeto Resolve
 > Isolamento no aprendizado

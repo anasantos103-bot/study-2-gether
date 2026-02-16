@@ -27,7 +27,7 @@ Tecnologias Utilizadas
 > Design focado em acessibilidade,
 > Conceitos de redes sociais educacionais,
 > Organização baseada em experiência do usuário (UX).
-(Outras tecnologias serão adicionadas conforme evolução do projeto)
+(Outras tecnologias serão adicionadas conforme evolução do projeto).
 ----------------------------------------------------------------------------------------------------------------------------- Estrutura da Plataforma
 > Página principal com navegação acadêmica,
 > Biblioteca de materiais,

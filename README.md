@@ -13,34 +13,34 @@ Funcionalidades Principais
 > Biblioteca Compartilhada,
 > Salas de Estudo Virtuais,
 > Calendário Acadêmico,
-> Gamificação e Reputaç.ão
+> Gamificação e Reputação.
 ------------------------------------------------------------------------------------------------------------------------------
 Problemas que o Projeto Resolve
-> Isolamento no aprendizado
-> Dificuldade em encontrar materiais confiáveis
-> Falta de organização acadêmica
-> Poucos espaços estruturados para tirar dúvidas
+> Isolamento no aprendizado,
+> Dificuldade em encontrar materiais confiáveis,
+> Falta de organização acadêmica,
+> Poucos espaços estruturados para tirar dúvidas.
 | O Study2Gether transforma o estudo em uma experiência social, organizada e motivadora.
 ------------------------------------------------------------------------------------------------------------------------------
 Tecnologias Utilizadas
-> HTML5 (estrutura semântica)
-> Design focado em acessibilidade
-> Conceitos de redes sociais educacionais
-> Organização baseada em experiência do usuário (UX)
-(Outras tecnologias serão adicionadas conforme evolução do projeto.)
+> HTML5 (estrutura semântica),
+> Design focado em acessibilidade,
+> Conceitos de redes sociais educacionais,
+> Organização baseada em experiência do usuário (UX).
+(Outras tecnologias serão adicionadas conforme evolução do projeto)
 ----------------------------------------------------------------------------------------------------------------------------- Estrutura da Plataforma
-> Página principal com navegação acadêmica
-> Biblioteca de materiais
-> Sistema de dúvidas da comunidade
-> Salas de estudo virtuais
-> Calendário acadêmico integrado
+> Página principal com navegação acadêmica,
+> Biblioteca de materiais,
+> Sistema de dúvidas da comunidade,
+> Salas de estudo virtuais,
+> Calendário acadêmico integrado.
 ------------------------------------------------------------------------------------------------------------------------------
 Contexto Educacional
  Este projeto foi desenvolvido com foco acadêmico, explorando conceitos de:
-> Aprendizagem colaborativa
-> Comunidades digitais de estudo
-> Organização da rotina acadêmica
-> Uso consciente da tecnologia na educação
+> Aprendizagem colaborativa,
+> Comunidades digitais de estudo,
+> Organização da rotina acadêmica,
+> Uso consciente da tecnologia na educação.
 ------------------------------------------------------------------------------------------------------------------------------
 Contribuição
 > Sugestões, melhorias e ideias são bem-vindas!

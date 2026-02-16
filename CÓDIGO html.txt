@@ -1,67 +1,339 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
+    <meta charset="UTF-8"> <title>Study2Gether | Plataforma de Estudos Colaborativos</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Plataforma de estudos colaborativos com salas virtuais, biblioteca de materiais e sistema de gamificação.">
 
-<title>Study2Gether | Plataforma de Estudos Colaborativos</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Plataforma de estudos colaborativos com salas virtuais, biblioteca de materiais e sistema de gamificação.">
-
-</head>
-
+    <meta name="theme-color" content="#4A90E2">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  </head>
 <body>
 
-  <header>
-    <h1>Study2Gether</h1>
-    <nav aria-label="Menu Principal">
-       <ul>
-          <li><a href="#sala">Sala de Estudo</a>
-          </li><li><a href="#biblioteca">Biblioteca</a></li>
-          <li><a href="#calendario">Calendário</a></li>
-          <li><a href="#duvidas">Postar Dúvida</a></li>
-       </ul>
+    <header>
+        <h1>Study2Gether</h1>
+        <nav aria-label="Menu Principal">
+            <ul>
+               <li><a href="#biblioteca">Biblioteca</a></li>
+                <li><a href="#sala">Sala de Estudo</a></li>
+                <li><a href="#duvidas">Postar Dúvida</a></li>
+                <li><a href="#calendario">Calendário</a></li>
+            </ul>
+        </nav>
+    </header>
+
+<aside>
+        <h3>Meu Perfil</h3>
+        <p>Nível: | Pontos:</p>
+        <p><strong>Especialidade:</strong> Matéria x</p>
+        
+        <h4>Minhas Conquistas</h4>
+        <ul>
+            <li>Primeira Dúvida Postada</li>
+            <li>Colaborador Iniciante</li>
+            <li>Foco Total (Pomodoro)</li>
+        </ul>
+    </aside>
+
+    <main>
+        <section id="biblioteca">
+            <header>
+                <h2>Biblioteca de Materiais</h2>
+            </header>
+
+            <fieldset>
+                <legend>Filtrar Conteúdo</legend>
+                <form action="#" method="GET">
+                    <label for="busca">Palavra-chave:</label>
+                    <input type="search" id="busca" name="q" placeholder="Ex: Integrais, Python...">
+
+                    <label for="filtro-materia">Disciplina:</label>
+                    <select id="filtro-materia" name="materia">
+                      <option value="todos">Todas as Disciplinas</option>
+                      <option value="portugues">Português</option>
+                      <option value="matematica">Matemática</option>
+                      <option value="fisica">Física</option>
+                      <option value="biologia">Biologia</option>
+                      <option value="historia">História</option>
+                      <option value="geografia">Geografia</option>
+                      <option value="quimica">Química</option>
+                      <option value="producao-texto">Produção de Texto</option>
+                      <option value="literatura">Literatura</option>
+                      <option value="artes">Artes</option>
+                    </select>
+
+                    <label for="filtro-nivel">Nível:</label>
+                    <select id="filtro-nivel" name="nivel">
+                        <option value="basico">Básico</option>
+                        <option value="intermediario">Intermediário</option>
+                        <option value="avancado">Avançado</option>
+                    </select>
+                    <button type="submit">🔍 Buscar</button>
+                </form>
+            </fieldset>
+
+            <br>
+
+            <fieldset>
+                <legend>Materiais Disponíveis</legend>
+
+                <article style="border-bottom: 1px dotted #ccc; margin-bottom: 15px; padding-bottom: 10px;">
+                    <h4>Resumo: y [PDF]</h4>
+                    <p>
+                        <strong>Nível:</strong> x | 
+                        <strong>Avaliação:</strong> x | 
+                        <strong>Downloads:</strong> x
+                    </p>
+                    
+                    <details>
+                        <summary>Ver Detalhes do Arquivo</summary>
+                        <p>Resumo focado em pipipip</p>
+                        <section class="comentarios">
+                            <h5>Comentários (2)</h5>
+                            <p><small><strong>z_Estudante:</strong> mimimi!</small></p>
+                        </section>
+                    </details>
+
+                    <button type="button">Baixar</button>
+                    <button type="button">Salvar para depois</button>
+                </article>
+
+                <article style="border-bottom: 1px dotted #ccc; margin-bottom: 15px; padding-bottom: 10px;">
+                    <h4>Videoaula: zzz</h4>
+                    <p><strong>Nível:</strong> x | <strong>Avaliação:</strong> xxx</p>
+                    <p><a href="https://youtube.com" target="_blank">xxxx</a></p>
+                    <button type="button"> Salvar para depois</button>
+                </article>
+
+                <article style="border-bottom: 1px dotted #ccc; margin-bottom: 15px; padding-bottom: 10px;">
+                    <h4>Banco de Provas: </h4>
+                    <p><strong>Nível:</strong> x | <strong>Downloads:</strong> x</p>
+                    <button type="button">Baixar Prova</button>
+                </article>
+
+                <article>
+                    <h4>Flashcards: bbb</h4>
+                    <p>Pronto para imprimir e recortar.</p>
+                    <button type="button">Baixar PDF</button>
+                </article>
+            </fieldset>
+        </section>
+
+        <section id="sala">
+            <header>
+                <h2>Salas de Estudo Virtuais</h2>
+            </header>
+
+            <fieldset>
+                <legend>Sala: Name xxx</legend>
+                
+                <div style="display: flex; gap: 20px; align-items: flex-start;">
+                    
+                    <div style="flex: 2;">
+                        <h4>Transmissão ao Vivo / Câmera</h4>
+                        <div style="background-color: #333; height: 200px; color: white; display: flex; align-items: center; justify-content: center;">
+                            <p>[Espaço para WebRTC / Transmissão de Vídeo]</p>
+                        </div>
+                        
+                        <div id="pomodoro" style="margin-top: 15px; padding: 10px; border: 2px solid #e74c3c; text-align: center;">
+                            <strong>Timer Pomodoro:</strong> <span>25:00</span>
+                            <button type="button">Iniciar Foco</button>
+                        </div>
+                    </div>
+
+                    <div style="flex: 1; border-left: 1px solid #ccc; padding-left: 20px;">
+                        <h4>Chat da Sala</h4>
+                        <div style="height: 150px; border: 1px solid #ddd; margin-bottom: 10px; font-size: 0.9em; overflow-y: scroll;">
+                            <p><strong>Pessoa 1:</strong> momomomom</p>
+                            <p><strong>Pessoa 2:</strong> kgkgkgkgkgkg?</p>
+                        </div>
+                        
+                        <h4>Minhas Metas hoje</h4>
+                        <ul style="list-style: none; padding: 0;">
+                            <li><input type="checkbox"> Fazer pipipi</li>
+                            <li><input type="checkbox"> ler mimimim</li>
+                        </ul>
+
+                        <button type="button" style="width: 100%;">Abrir Quadro Branco</button>
+                    </div>
+
+                </div>
+            </fieldset>
+        </section>
+
+        <section id="duvidas">
+            <header>
+                <h2>Dúvidas da Comunidade</h2>
+            </header>
+
+            <div style="display: flex; gap: 20px; align-items: flex-start;">
+                
+                <div style="flex: 1;">
+                    <form action="/enviar-duvida" method="POST">
+                        <fieldset>
+                            <legend>Nova Pergunta</legend>
+                            <label for="titulo">Título da Dúvida:</label>
+                            <input type="text" id="titulo" name="titulo" placeholder="Ex: Como resolver essa integral?" required>
+                            <label for="materia">Disciplina:</label>
+                            <select id="materia" name="materia" required>
+                              <option value="">Selecione a matéria...</option>
+                              <option value="portugues">Português</option>
+                              <option value="matematica">Matemática</option>
+                              <option value="fisica">Física</option>
+                              <option value="biologia">Biologia</option>
+                              <option value="historia">História</option>
+                              <option value="geografia">Geografia</option>
+                              <option value="quimica">Química</option>
+                              <option value="producao-texto">Produção de Texto</option>
+                              <option value="literatura">Literatura</option>
+                              <option value="artes">Artes</option>
+                            </select>
+
+                            <label for="descricao">Explique sua dúvida:</label>
+                            <textarea id="descricao" name="descricao" rows="4" required placeholder="Cole seu código ou descreva o problema..."></textarea>
+
+                            <label for="arquivo">Anexar foto do caderno:</label>
+                            <input type="file" id="arquivo" name="arquivo" accept="image/*">
+
+                            <button type="submit" style="margin-top: 10px; width: 100%;">Publicar Dúvida</button>
+                        </fieldset>
+                    </form>
+                </div>
+
+                <div style="flex: 1.5;">
+                    <fieldset>
+                        <legend>Dúvidas Recentes</legend>
+                        
+                        <article style="border-bottom: 1px solid #eee; padding: 10px; margin-bottom: 10px;">
+                            <span style="background: #e74c3c; color: white; padding: 2px 5px; font-size: 0.7em; border-radius: 3px;">EM ABERTO</span>
+                            <h4 style="margin: 5px 0;">Dúvida sobre pipipipi</h4>
+                            <p style="font-size: 0.9em; color: #555;">Postado por <strong>Pessoa_Dev</strong> em x matéria</p>
+                            
+                            <div style="display: flex; gap: 15px; font-size: 0.8em;">
+                                <span>x Votos</span>
+                                <span>y Respostas</span>
+                            </div>
+                            <button type="button" style="margin-top: 5px;">Ajudar este colega</button>
+                        </article>
+
+                        <article style="padding: 10px;">
+                            <span style="background: #2ecc71; color: white; padding: 2px 5px; font-size: 0.7em; border-radius: 3px;">RESOLVIDA</span>
+                            <h4 style="margin: 5px 0;">assunto x</h4>
+                            <p style="font-size: 0.9em; color: #555;">Postado por <strong>pessoa_x</strong> em materia x</p>
+                            <p><small>✅ <em>Melhor resposta escolhida pelo autor</em></small></p>
+                            <button type="button">Ver solução</button>
+                        </article>
+
+                    </fieldset>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="calendario">
+            <header>
+                <h2>Meu Cronograma Académico</h2>
+            </header>
+            
+            <fieldset>
+                <legend>Gestão de Tempo e Provas</legend>
+
+                <div style="display: flex; gap: 20px; align-items: flex-start;">
+                    
+                    <div style="flex: 1;">
+                        <h4>Legenda</h4>
+                        <ul style="list-style: none; padding: 0; font-size: 0.9em;">
+                            <li><span style="color: #e74c3c;">●</span> XXX</li>
+                            <li><span style="color: #3498db;">●</span> YYY</li>
+                            <li><span style="color: #2ecc71;">●</span> ZZZ</li>
+                        </ul>
+
+                        <hr>
+
+                        <h4>Novo Evento</h4>
+                        <form action="#">
+                            <input type="text" placeholder="O que vais estudar?" style="width: 100%; margin-bottom: 5px;">
+                            <input type="date" style="width: 100%; margin-bottom: 5px;">
+                            <button type="button" style="width: 100%;">Agendar</button>
+                        </form>
+                    </div>
+
+                    <div style="flex: 1.5;">
+                        <table border="1" style="border-collapse: collapse; width: 100%; text-align: center; font-size: 0.9em;">
+                            <caption>Fevereiro 2026</caption>
+                            <thead>
+                                <tr style="background-color: #f4f4f4;">
+                                    <th>D</th> 
+                                    <th>S</th> 
+                                    <th>T</th> 
+                                    <th>Q</th> 
+                                    <th>Q</th> 
+                                    <th>S</th> 
+                                    <th>S</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td> 
+                                    <td>2</td> 
+                                    <td>3</td> 
+                                    <td style="border: 2px solid #e74c3c; font-weight: bold;">4</td> 
+                                    <td>5</td> 
+                                    <td style="border: 2px solid #3498db;">6</td> 
+                                    <td>7</td>
+                                </tr>
+                                <tr>
+                                    <td style="background-color: #fff9c4; font-weight: bold;">8</td> 
+                                    <td>9</td> 
+                                    <td>10</td> 
+                                    <td>11</td> 
+                                    <td>12</td> 
+                                    <td>13</td> 
+                                    <td>14</td>
+                                </tr>
+                                <tr>
+                                    <td>15</td> 
+                                    <td>16</td> 
+                                    <td style="border: 2px solid #2ecc71;">17</td> 
+                                    <td>18</td> 
+                                    <td>19</td> 
+                                    <td>20</td> 
+                                    <td>21</td>
+                                </tr>
+                                <tr>
+                                    <td>22</td> 
+                                    <td>23</td> 
+                                    <td>24</td> 
+                                    <td>25</td> 
+                                    <td>26</td> 
+                                    <td>27</td> 
+                                    <td>28</td>
+                                </tr>
+                                    <td>29</td> 
+                                    <td>30</td> 
+                            </tbody>
+                        </table>
+                        <p style="font-size: 0.8em; margin-top: 10px; text-align: center;">
+                             <em>Dica: Faltam X dias para algo!</em>
+                        </p>
+                    </div>
+
+                </div>
+            </fieldset>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Study2Gether - Todos os direitos reservados.</p>
+    <nav aria-label="Links Úteis"> 
+      <ul>
+            <li><a href="#termos">Termos de Uso</a>
+            </li>
+            <li><a href="#contato">Contato</a>
+            </li>
+      </ul>
     </nav>
-  </header>
-
-<main>
-
-  <section id="Biblioteca">
-    <header>
-      <h2>Sala: Biblioteca de Materiais</h2>
-    </header>
-    <p>[Acesse documentos, livros, resumos e muto mais!]</p>
-  </section>
-
-  <section id="sala">
-    <header>
-      <h2>Sala:Salas de Estudo Virtuais</h2>
-    </header>
-     <p>[Ambiente de estudo em tempo real]</p>
-</section> <section id="duvidas">
-<header>
-<h2>Sala:Dúvidas da Comunidade</h2>
- <form action="/enviar-duvida" method="POST">
-<fieldset>
- <legend>Nova Pergunta</legend>
- <label for="titulo">Título da Dúvida:</label>
-<input type="text" id="titulo" name="titulo" placeholder="Ex: Dúvida em Integral" required>
-<label for="materia">Disciplina:</label>
-<select id="materia" name="materia" required>
-<option value="">Selecione...</option>
-<option value="calculo">Cálculo II</option>
- <option value="algoritmos">Algoritmos</option>
-</select>
-<label for="descricao">Descrição Detalhada:</label>
-<textarea id="descricao" name="descricao" rows="4" required></textarea>
-<button type="submit">Publicar Dúvida</button>
-</fieldset>
-</form>
-</section>
-</main>
-<footer>
-<p>&copy; 2026 Study2Gether - Todos os direitos reservados.</p>
-</footer>
-
+      </footer>
 </body>
-
-
 </html>

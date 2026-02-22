@@ -8,8 +8,11 @@
     <meta name="theme-color" content="#4A90E2">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  </head>
+    
+</head>
 <body>
+     
+    <a href="#conteudo">Pular para o conteúdo</a>
 
     <header>
         <h1>Study2Gether</h1>
@@ -24,33 +27,304 @@
     </header>
 
 <aside>
-        <h3>Meu Perfil</h3>
-        <p>Nível: | Pontos:</p>
-        <p><strong>Especialidade:</strong> Matéria x</p>
-        
-        <h4>Minhas Conquistas</h4>
+    <h3>Meu Perfil</h3>
+    <section aria-labelledby="dados-perfil">
+        <h4 id="dados-perfil">Dados do Perfil</h4>
+        <dl>
+            <dt><strong>Instituição:</strong></dt>
+            <dd>—</dd>
+
+            <dt><strong>Curso:</strong></dt>
+            <dd>—</dd>
+
+            <dt><strong>Semestre:</strong></dt>
+            <dd>—</dd>
+
+            <dt><strong>Interesses:</strong></dt>
+            <dd>—</dd>
+        </dl>
+    </section>
+
+    <p>Nível: | Pontos:</p>
+    <p><strong>Especialidade:</strong> Matéria x</p>
+
+    <nav aria-label="Ações de Conta">
         <ul>
-            <li>Primeira Dúvida Postada</li>
-            <li>Colaborador Iniciante</li>
-            <li>Foco Total (Pomodoro)</li>
+            <li><a href="#configuracoes">Configurações</a></li>
+            <li><a href="#privacidade">Privacidade</a></li>
+            <li><a href="#excluir-conta">Excluir conta</a></li>
         </ul>
-    </aside>
+    </nav>
 
-    <main>
+    <h4>Minhas Conquistas</h4>
+    <ul>
+        <li>Primeira Dúvida Postada</li>
+        <li>Colaborador Iniciante</li>
+        <li>Foco Total (Pomodoro)</li>
+    </ul>
+</aside>
+
+    <main id="conteudo">
         <section id="biblioteca">
-            <header>
-                <h2>Biblioteca de Materiais</h2>
-            </header>
+    <header>
+        <h2>Biblioteca de Materiais</h2>
+    </header>
 
-            <fieldset>
-                <legend>Filtrar Conteúdo</legend>
-                <form action="#" method="GET">
-                    <label for="busca">Palavra-chave:</label>
-                    <input type="search" id="busca" name="q" placeholder="Ex: Integrais, Python...">
+    <fieldset>
+        <legend>Filtrar Conteúdo</legend>
+        <form action="#" method="GET">
+            <label for="busca">Palavra-chave:</label>
+            <input type="search" id="busca" name="q" placeholder="Ex: Integrais, Python.">
 
-                    <label for="filtro-materia">Disciplina:</label>
-                    <select id="filtro-materia" name="materia">
-                      <option value="todos">Todas as Disciplinas</option>
+            <label for="filtro-materia">Disciplina:</label>
+            <select id="filtro-materia" name="materia">
+              <option value="todos">Todas as Disciplinas</option>
+              <option value="portugues">Português</option>
+              <option value="matematica">Matemática</option>
+              <option value="fisica">Física</option>
+              <option value="biologia">Biologia</option>
+              <option value="historia">História</option>
+              <option value="geografia">Geografia</option>
+              <option value="quimica">Química</option>
+              <option value="producao-texto">Produção de Texto</option>
+              <option value="literatura">Literatura</option>
+              <option value="artes">Artes</option>
+            </select>
+
+            <label for="filtro-nivel">Nível:</label>
+            <select id="filtro-nivel" name="nivel">
+                <option value="basico">Básico</option>
+                <option value="intermediario">Intermediário</option>
+                <option value="avancado">Avançado</option>
+            </select>
+            <button type="submit">🔍 Buscar</button>
+        </form>
+    </fieldset>
+
+    <br>
+
+    <fieldset>
+        <legend>Enviar Material</legend>
+
+        <form action="#" method="POST" enctype="multipart/form-data">
+            <p>
+                <label for="mat-titulo"><strong>Título:</strong></label><br>
+                <input type="text" id="mat-titulo" name="titulo" required placeholder="Ex: Resumo de Funções do 2º grau">
+            </p>
+
+            <p>
+                <label for="mat-disciplina"><strong>Disciplina:</strong></label><br>
+                <select id="mat-disciplina" name="disciplina" required>
+                    <option value="" selected disabled>Selecione</option>
+                    <option value="portugues">Português</option>
+                    <option value="matematica">Matemática</option>
+                    <option value="fisica">Física</option>
+                    <option value="biologia">Biologia</option>
+                    <option value="historia">História</option>
+                    <option value="geografia">Geografia</option>
+                    <option value="quimica">Química</option>
+                    <option value="producao-texto">Produção de Texto</option>
+                    <option value="literatura">Literatura</option>
+                    <option value="artes">Artes</option>
+                </select>
+            </p>
+
+            <p>
+                <label for="mat-tipo"><strong>Tipo:</strong></label><br>
+                <select id="mat-tipo" name="tipo" required>
+                    <option value="" selected disabled>Selecione</option>
+                    <option value="resumo">Resumo</option>
+                    <option value="mapa-mental">Mapa Mental</option>
+                    <option value="lista-exercicios">Lista de Exercícios</option>
+                    <option value="prova">Banco de Provas</option>
+                    <option value="flashcards">Flashcards</option>
+                    <option value="videoaula">Videoaula</option>
+                    <option value="outro">Outro</option>
+                </select>
+            </p>
+
+            <p>
+                <label for="mat-ano"><strong>Ano:</strong></label><br>
+                <input type="number" id="mat-ano" name="ano" required min="2000" max="2100" placeholder="Ex: 2026">
+            </p>
+
+            <p>
+                <label for="mat-arquivo"><strong>Arquivo:</strong></label><br>
+                <input type="file" id="mat-arquivo" name="arquivo" required>
+            </p>
+
+            <p>
+                <small>
+                    • Ao baixar, o arquivo será <strong>rastreável</strong> (marca d’água invisível).<br>
+                    • Materiais com avaliação abaixo de <strong>3 estrelas</strong> podem ser arquivados com o tempo.
+                </small>
+            </p>
+
+            <button type="submit">📤 Enviar Material</button>
+        </form>
+    </fieldset>
+
+    <br>
+
+    <fieldset>
+        <legend>Materiais Disponíveis</legend>
+
+        <article style="border-bottom: 1px dotted #ccc; margin-bottom: 15px; padding-bottom: 10px;">
+            <h4>Resumo: y</h4>
+
+            <ul>
+                <li><strong>Disciplina:</strong> x</li>
+                <li><strong>Tipo:</strong> PDF</li>
+                <li><strong>Ano:</strong> <time datetime="2026">2026</time></li>
+                <li><strong>Nível:</strong> x</li>
+                <li><strong>Avaliação:</strong> x</li>
+                <li><strong>Downloads:</strong> x</li>
+            </ul>
+
+            <details>
+                <summary>Ver Detalhes do Arquivo</summary>
+                <p>Resumo focado em pipipip</p>
+                <section class="comentarios">
+                    <h5>Comentários (2)</h5>
+                    <p><small><strong>z_Estudante:</strong> mimimi!</small></p>
+                </section>
+            </details>
+
+            <button type="button">Baixar</button>
+            <button type="button">Salvar para depois</button>
+        </article>
+
+        <article style="border-bottom: 1px dotted #ccc; margin-bottom: 15px; padding-bottom: 10px;">
+            <h4>Videoaula: zzz</h4>
+
+            <ul>
+                <li><strong>Disciplina:</strong> x</li>
+                <li><strong>Tipo:</strong> Videoaula</li>
+                <li><strong>Ano:</strong> <time datetime="2026">2026</time></li>
+                <li><strong>Nível:</strong> x</li>
+                <li><strong>Avaliação:</strong> xxx</li>
+            </ul>
+
+            <p><a href="https://youtube.com" target="_blank">xxxx</a></p>
+            <button type="button">Salvar para depois</button>
+        </article>
+
+        <article style="border-bottom: 1px dotted #ccc; margin-bottom: 15px; padding-bottom: 10px;">
+            <h4>Banco de Provas:</h4>
+
+            <ul>
+                <li><strong>Disciplina:</strong> x</li>
+                <li><strong>Tipo:</strong> Banco de Provas</li>
+                <li><strong>Ano:</strong> <time datetime="2026">2026</time></li>
+                <li><strong>Nível:</strong> x</li>
+                <li><strong>Downloads:</strong> x</li>
+            </ul>
+
+            <button type="button">Baixar Prova</button>
+        </article>
+
+        <article>
+            <h4>Flashcards: bbb</h4>
+
+            <ul>
+                <li><strong>Disciplina:</strong> x</li>
+                <li><strong>Tipo:</strong> Flashcards</li>
+                <li><strong>Ano:</strong> <time datetime="2026">2026</time></li>
+            </ul>
+
+            <p>Pronto para imprimir e recortar.</p>
+        </article>
+    </fieldset>
+</section>
+        <section id="sala">
+    <header>
+        <h2>Salas de Estudo Virtuais</h2>
+    </header>
+
+    <fieldset>
+        <legend>Sala: Name xxx</legend>
+
+        <div style="display: flex; gap: 20px; align-items: flex-start;">
+
+            <div style="flex: 2;">
+                <h4>Transmissão ao Vivo / Câmera</h4>
+                <div style="background-color: #333; height: 200px; color: white; display: flex; align-items: center; justify-content: center;">
+                    <p>[Espaço para WebRTC / Transmissão de Vídeo]</p>
+                </div>
+
+                <div id="pomodoro" style="margin-top: 15px; padding: 10px; border: 2px solid #e74c3c; text-align: center;">
+                    <strong>Timer Pomodoro:</strong> <span>25:00</span>
+                    <button type="button">Iniciar Foco</button>
+                </div>
+
+                <!-- ADICIONADO: Replay por 7 dias (RF10) -->
+                <section aria-label="Replay das sessões" style="margin-top: 15px; padding: 10px; border: 1px solid #ddd;">
+                    <h4>Últimas sessões (replay - 7 dias)</h4>
+
+                    <article style="border-bottom: 1px dotted #ccc; padding-bottom: 8px; margin-bottom: 8px;">
+                        <p><strong>Sessão:</strong> Grupo de Cálculo II</p>
+                        <p><strong>Data:</strong> <time datetime="2026-02-20T19:00">20/02/2026 - 19:00</time></p>
+                        <button type="button">Ver replay</button>
+                    </article>
+
+                    <article style="border-bottom: 1px dotted #ccc; padding-bottom: 8px; margin-bottom: 8px;">
+                        <p><strong>Sessão:</strong> Revisão de Física</p>
+                        <p><strong>Data:</strong> <time datetime="2026-02-19T20:30">19/02/2026 - 20:30</time></p>
+                        <button type="button">Ver replay</button>
+                    </article>
+
+                    <p style="font-size: 0.85em; margin: 0;">
+                        <em>Obs: replays ficam disponíveis por 7 dias.</em>
+                    </p>
+                </section>
+            </div>
+
+            <div style="flex: 1; border-left: 1px solid #ccc; padding-left: 20px;">
+                <h4>Chat da Sala</h4>
+                <div style="height: 150px; border: 1px solid #ddd; margin-bottom: 10px; font-size: 0.9em; overflow-y: scroll;">
+                    <p><strong>Pessoa 1:</strong> momomomom</p>
+                    <p><strong>Pessoa 2:</strong> kgkgkgkgkgkg?</p>
+                </div>
+
+                <h4>Minhas Metas hoje</h4>
+                <ul style="list-style: none; padding: 0;">
+                    <li><input type="checkbox"> Fazer pipipi</li>
+                    <li><input type="checkbox"> ler mimimim</li>
+                </ul>
+
+                <aside aria-label="Tracker de Foco" style="margin-top: 10px; padding: 10px; border: 1px solid #ddd;">
+                    <h4>Tracker de Foco (sincronizado)</h4>
+                    <p style="margin: 0;"><strong>Status:</strong> focando / pausa</p>
+                    <p style="margin: 6px 0 0 0; font-size: 0.85em;">
+                        <em>Placeholder: depois será atualizado em tempo real para todos na sala.</em>
+                    </p>
+                </aside>
+
+                <button type="button" style="width: 100%;">Abrir Quadro Branco</button>
+            </div>
+
+        </div>
+    </fieldset>
+</section>
+
+        <section id="duvidas">
+    <header>
+        <h2>Dúvidas da Comunidade</h2>
+    </header>
+
+    <div style="display: flex; gap: 20px; align-items: flex-start;">
+        
+        <div style="flex: 1;">
+            <form action="/enviar-duvida" method="POST" enctype="multipart/form-data">
+                <fieldset>
+                    <legend>Nova Pergunta</legend>
+
+                    <label for="titulo">Título da Dúvida:</label>
+                    <input type="text" id="titulo" name="titulo" placeholder="Ex: Como resolver essa integral?" required>
+
+                    <label for="materia">Disciplina:</label>
+                    <select id="materia" name="materia" required>
+                      <option value="">Selecione a matéria.</option>
                       <option value="portugues">Português</option>
                       <option value="matematica">Matemática</option>
                       <option value="fisica">Física</option>
@@ -63,173 +337,76 @@
                       <option value="artes">Artes</option>
                     </select>
 
-                    <label for="filtro-nivel">Nível:</label>
-                    <select id="filtro-nivel" name="nivel">
-                        <option value="basico">Básico</option>
-                        <option value="intermediario">Intermediário</option>
-                        <option value="avancado">Avançado</option>
+                    <label for="tags">Tags:</label>
+                    <input type="text" id="tags" name="tags" placeholder="Ex: #calculo #derivadas #limites">
+
+                    <label for="descricao">Explique sua dúvida:</label>
+                    <textarea id="descricao" name="descricao" rows="4" required placeholder="Cole seu código ou descreva o problema."></textarea>
+
+                    <label for="arquivo">Anexar foto do caderno:</label>
+                    <input type="file" id="arquivo" name="arquivo" accept="image/*">
+
+                    <button type="submit" style="margin-top: 10px; width: 100%;">Publicar Dúvida</button>
+                </fieldset>
+            </form>
+        </div>
+
+        <div style="flex: 1.5;">
+            <fieldset>
+                <legend>Dúvidas Recentes</legend>
+
+                <div style="display: flex; gap: 10px; align-items: center; margin-bottom: 10px;">
+                    <label for="ordenacao" style="font-size: 0.9em;">Ordenar por:</label>
+                    <select id="ordenacao" name="ordenacao">
+                        <option value="relevantes">Mais relevantes</option>
+                        <option value="votadas">Mais votadas</option>
+                        <option value="recentes">Mais recentes</option>
                     </select>
-                    <button type="submit">🔍 Buscar</button>
-                </form>
-            </fieldset>
-
-            <br>
-
-            <fieldset>
-                <legend>Materiais Disponíveis</legend>
-
-                <article style="border-bottom: 1px dotted #ccc; margin-bottom: 15px; padding-bottom: 10px;">
-                    <h4>Resumo: y [PDF]</h4>
-                    <p>
-                        <strong>Nível:</strong> x | 
-                        <strong>Avaliação:</strong> x | 
-                        <strong>Downloads:</strong> x
-                    </p>
-                    
-                    <details>
-                        <summary>Ver Detalhes do Arquivo</summary>
-                        <p>Resumo focado em pipipip</p>
-                        <section class="comentarios">
-                            <h5>Comentários (2)</h5>
-                            <p><small><strong>z_Estudante:</strong> mimimi!</small></p>
-                        </section>
-                    </details>
-
-                    <button type="button">Baixar</button>
-                    <button type="button">Salvar para depois</button>
-                </article>
-
-                <article style="border-bottom: 1px dotted #ccc; margin-bottom: 15px; padding-bottom: 10px;">
-                    <h4>Videoaula: zzz</h4>
-                    <p><strong>Nível:</strong> x | <strong>Avaliação:</strong> xxx</p>
-                    <p><a href="https://youtube.com" target="_blank">xxxx</a></p>
-                    <button type="button"> Salvar para depois</button>
-                </article>
-
-                <article style="border-bottom: 1px dotted #ccc; margin-bottom: 15px; padding-bottom: 10px;">
-                    <h4>Banco de Provas: </h4>
-                    <p><strong>Nível:</strong> x | <strong>Downloads:</strong> x</p>
-                    <button type="button">Baixar Prova</button>
-                </article>
-
-                <article>
-                    <h4>Flashcards: bbb</h4>
-                    <p>Pronto para imprimir e recortar.</p>
-                    <button type="button">Baixar PDF</button>
-                </article>
-            </fieldset>
-        </section>
-
-        <section id="sala">
-            <header>
-                <h2>Salas de Estudo Virtuais</h2>
-            </header>
-
-            <fieldset>
-                <legend>Sala: Name xxx</legend>
+                </div>
                 
-                <div style="display: flex; gap: 20px; align-items: flex-start;">
-                    
-                    <div style="flex: 2;">
-                        <h4>Transmissão ao Vivo / Câmera</h4>
-                        <div style="background-color: #333; height: 200px; color: white; display: flex; align-items: center; justify-content: center;">
-                            <p>[Espaço para WebRTC / Transmissão de Vídeo]</p>
-                        </div>
-                        
-                        <div id="pomodoro" style="margin-top: 15px; padding: 10px; border: 2px solid #e74c3c; text-align: center;">
-                            <strong>Timer Pomodoro:</strong> <span>25:00</span>
-                            <button type="button">Iniciar Foco</button>
-                        </div>
+                <article style="border-bottom: 1px solid #eee; padding: 10px; margin-bottom: 10px;">
+                    <span style="background: #e74c3c; color: white; padding: 2px 5px; font-size: 0.7em; border-radius: 3px;">EM ABERTO</span>
+                    <h4 style="margin: 5px 0;">Dúvida sobre pipipipi</h4>
+                    <p style="font-size: 0.9em; color: #555;">Postado por <strong>Pessoa_Dev</strong> em x matéria</p>
+
+                    <div style="display: flex; gap: 15px; font-size: 0.8em;">
+                        <span>x Votos</span>
+                        <span>y Respostas</span>
+                        <span style="background: #f1c40f; color: #222; padding: 2px 6px; border-radius: 3px;">Endossado por Mentor</span>
                     </div>
 
-                    <div style="flex: 1; border-left: 1px solid #ccc; padding-left: 20px;">
-                        <h4>Chat da Sala</h4>
-                        <div style="height: 150px; border: 1px solid #ddd; margin-bottom: 10px; font-size: 0.9em; overflow-y: scroll;">
-                            <p><strong>Pessoa 1:</strong> momomomom</p>
-                            <p><strong>Pessoa 2:</strong> kgkgkgkgkgkg?</p>
-                        </div>
-                        
-                        <h4>Minhas Metas hoje</h4>
-                        <ul style="list-style: none; padding: 0;">
-                            <li><input type="checkbox"> Fazer pipipi</li>
-                            <li><input type="checkbox"> ler mimimim</li>
-                        </ul>
-
-                        <button type="button" style="width: 100%;">Abrir Quadro Branco</button>
+                    <div style="display: flex; gap: 10px; margin-top: 6px;">
+                        <button type="button" aria-label="Dar upvote">▲ Upvote</button>
+                        <button type="button" aria-label="Dar downvote">▼ Downvote</button>
                     </div>
 
-                </div>
+                    <button type="button" style="margin-top: 5px;">Ajudar este colega</button>
+                </article>
+
+                <article style="padding: 10px;">
+                    <span style="background: #2ecc71; color: white; padding: 2px 5px; font-size: 0.7em; border-radius: 3px;">RESOLVIDA</span>
+                    <h4 style="margin: 5px 0;">Outra dúvida sobre mimimi</h4>
+                    <p style="font-size: 0.9em; color: #555;">Postado por <strong>Pessoa_Aluno</strong> em y matéria</p>
+
+                    <div style="display: flex; gap: 15px; font-size: 0.8em;">
+                        <span>x Votos</span>
+                        <span>y Respostas</span>
+                        <span style="background: #9b59b6; color: white; padding: 2px 6px; border-radius: 3px;">Expert Verificado</span>
+                    </div>
+
+                    <div style="display: flex; gap: 10px; margin-top: 6px;">
+                        <button type="button" aria-label="Dar upvote">▲ Upvote</button>
+                        <button type="button" aria-label="Dar downvote">▼ Downvote</button>
+                    </div>
+
+                    <button type="button" style="margin-top: 5px;">Ver Resposta</button>
+                </article>
+
             </fieldset>
-        </section>
+        </div>
 
-        <section id="duvidas">
-            <header>
-                <h2>Dúvidas da Comunidade</h2>
-            </header>
-
-            <div style="display: flex; gap: 20px; align-items: flex-start;">
-                
-                <div style="flex: 1;">
-                    <form action="/enviar-duvida" method="POST">
-                        <fieldset>
-                            <legend>Nova Pergunta</legend>
-                            <label for="titulo">Título da Dúvida:</label>
-                            <input type="text" id="titulo" name="titulo" placeholder="Ex: Como resolver essa integral?" required>
-                            <label for="materia">Disciplina:</label>
-                            <select id="materia" name="materia" required>
-                              <option value="">Selecione a matéria...</option>
-                              <option value="portugues">Português</option>
-                              <option value="matematica">Matemática</option>
-                              <option value="fisica">Física</option>
-                              <option value="biologia">Biologia</option>
-                              <option value="historia">História</option>
-                              <option value="geografia">Geografia</option>
-                              <option value="quimica">Química</option>
-                              <option value="producao-texto">Produção de Texto</option>
-                              <option value="literatura">Literatura</option>
-                              <option value="artes">Artes</option>
-                            </select>
-
-                            <label for="descricao">Explique sua dúvida:</label>
-                            <textarea id="descricao" name="descricao" rows="4" required placeholder="Cole seu código ou descreva o problema..."></textarea>
-
-                            <label for="arquivo">Anexar foto do caderno:</label>
-                            <input type="file" id="arquivo" name="arquivo" accept="image/*">
-
-                            <button type="submit" style="margin-top: 10px; width: 100%;">Publicar Dúvida</button>
-                        </fieldset>
-                    </form>
-                </div>
-
-                <div style="flex: 1.5;">
-                    <fieldset>
-                        <legend>Dúvidas Recentes</legend>
-                        
-                        <article style="border-bottom: 1px solid #eee; padding: 10px; margin-bottom: 10px;">
-                            <span style="background: #e74c3c; color: white; padding: 2px 5px; font-size: 0.7em; border-radius: 3px;">EM ABERTO</span>
-                            <h4 style="margin: 5px 0;">Dúvida sobre pipipipi</h4>
-                            <p style="font-size: 0.9em; color: #555;">Postado por <strong>Pessoa_Dev</strong> em x matéria</p>
-                            
-                            <div style="display: flex; gap: 15px; font-size: 0.8em;">
-                                <span>x Votos</span>
-                                <span>y Respostas</span>
-                            </div>
-                            <button type="button" style="margin-top: 5px;">Ajudar este colega</button>
-                        </article>
-
-                        <article style="padding: 10px;">
-                            <span style="background: #2ecc71; color: white; padding: 2px 5px; font-size: 0.7em; border-radius: 3px;">RESOLVIDA</span>
-                            <h4 style="margin: 5px 0;">assunto x</h4>
-                            <p style="font-size: 0.9em; color: #555;">Postado por <strong>pessoa_x</strong> em materia x</p>
-                            <p><small>✅ <em>Melhor resposta escolhida pelo autor</em></small></p>
-                            <button type="button">Ver solução</button>
-                        </article>
-
-                    </fieldset>
-                </div>
-
-            </div>
-        </section>
+    </div>
+</section>
 
         <section id="calendario">
             <header>
@@ -253,10 +430,23 @@
 
                         <h4>Novo Evento</h4>
                         <form action="#">
-                            <input type="text" placeholder="O que vais estudar?" style="width: 100%; margin-bottom: 5px;">
-                            <input type="date" style="width: 100%; margin-bottom: 5px;">
-                            <button type="button" style="width: 100%;">Agendar</button>
+                            <label for="evento-titulo">O que vais estudar?</label>
+                            <input type="text" id="evento-titulo" name="evento-titulo" placeholder="O que vais estudar?" style="width: 100%; margin-bottom: 5px;">
+                            <label for="evento-data">Data</label>
+                            <input type="date" id="evento-data" name="evento-data" style="width: 100%; margin-bottom: 5px;">
+                            <button type="submit" style="width: 100%;">Agendar</button>
                         </form>
+                        <h4>Sugestões da comunidade (em votação)</h4>
+                        <ul>
+                            <li>
+                                <strong>Prova de x matéria</strong> — <span>Dia dd/mm</span>
+                                <button type="button">Votar</button>
+                            </li>
+                            <li>
+                                <strong>Trabalho de y matéria</strong> — <span>Dia dd/mm</span>
+                                <button type="button">Votar</button>
+                            </li>
+                        </ul>
                     </div>
 
                     <div style="flex: 1.5;">
@@ -327,13 +517,19 @@
     <footer>
         <p>&copy; 2026 Study2Gether - Todos os direitos reservados.</p>
     <nav aria-label="Links Úteis"> 
-      <ul>
-            <li><a href="#termos">Termos de Uso</a>
-            </li>
-            <li><a href="#contato">Contato</a>
-            </li>
-      </ul>
-    </nav>
-      </footer>
+    <ul>
+          <li><a href="#privacidade">Política de Privacidade</a>
+          </li>
+          <li><a href="#termos">Termos de Uso</a>
+          </li>
+          <li><a href="#baixar-dados">Baixar meus dados</a>
+          </li>
+          <li><a href="#excluir-conta">Excluir minha conta</a>
+          </li>
+          <li><a href="#contato">Contato</a>
+          </li>
+    </ul>
+  </nav>
+</footer>
 </body>
 </html>

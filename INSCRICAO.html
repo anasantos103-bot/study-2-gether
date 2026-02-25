@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Inscrição — 1º Hackathon de Informática da Escola</title>
+</head>
+
+<body>
+  <header>
+    <h1>1º Hackathon de Informática da Escola</h1>
+    <p>Formulário de inscrição oficial do evento.</p>
+  </header>
+
+  <main>
+    <section aria-labelledby="titulo-form">
+      <h2 id="titulo-form">Inscreva-se</h2>
+      <p id="ajuda-form">
+        Preencha com atenção. Campos com * são obrigatórios.
+      </p>
+
+      <form action="/inscricao" method="post" enctype="multipart/form-data" aria-describedby="ajuda-form">
+
+        <fieldset>
+          <legend>Bloco 1 — Dados Pessoais</legend>
+
+          <div>
+            <label for="nome">Nome completo *</label><br />
+            <input
+              type="text"
+              id="nome"
+              name="nome"
+              autocomplete="name"
+              required
+              minlength="3"
+              maxlength="120"
+              placeholder="Ex: Ana Maria Silva"
+            />
+          </div>
+
+          <div>
+            <label for="email">E-mail *</label><br />
+            <input
+              type="email"
+              id="email"
+              name="email"
+              autocomplete="email"
+              required
+              placeholder="exemplo@email.com"
+            />
+          </div>
+
+          <div>
+            <label for="senha">Senha para o sistema *</label><br />
+            <input
+              type="password"
+              id="senha"
+              name="senha"
+              required
+              minlength="8"
+              maxlength="64"
+              autocomplete="new-password"
+              aria-describedby="senha-ajuda"
+              placeholder="Mínimo 8 caracteres"
+            />
+            <p id="senha-ajuda">
+              Dica: use letras, números e pelo menos um símbolo para ficar mais forte.
+            </p>
+          </div>
+
+          <div>
+            <label for="nascimento">Data de nascimento *</label><br />
+            <input
+              type="date"
+              id="nascimento"
+              name="nascimento"
+              required
+            />
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Bloco 2 — Perfil Técnico</legend>
+
+          <fieldset>
+            <legend>Linguagens de interesse (pode marcar mais de uma) *</legend>
+
+            <div>
+              <input type="checkbox" id="ling-html" name="linguagens[]" value="HTML" required />
+              <label for="ling-html">HTML</label>
+            </div>
+
+            <div>
+              <input type="checkbox" id="ling-css" name="linguagens[]" value="CSS" />
+              <label for="ling-css">CSS</label>
+            </div>
+
+            <div>
+              <input type="checkbox" id="ling-js" name="linguagens[]" value="JavaScript" />
+              <label for="ling-js">JavaScript</label>
+            </div>
+
+            <div>
+              <input type="checkbox" id="ling-py" name="linguagens[]" value="Python" />
+              <label for="ling-py">Python</label>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>Nível de experiência *</legend>
+
+            <div>
+              <input type="radio" id="nivel-iniciante" name="nivel" value="Iniciante" required />
+              <label for="nivel-iniciante">Iniciante</label>
+            </div>
+
+            <div>
+              <input type="radio" id="nivel-intermediario" name="nivel" value="Intermediário" />
+              <label for="nivel-intermediario">Intermediário</label>
+            </div>
+
+            <div>
+              <input type="radio" id="nivel-avancado" name="nivel" value="Avançado" />
+              <label for="nivel-avancado">Avançado</label>
+            </div>
+          </fieldset>
+
+          <div>
+            <label for="arquivo">Anexar currículo/portfólio (PDF, DOC, DOCX) *</label><br />
+            <input
+              type="file"
+              id="arquivo"
+              name="arquivo"
+              required
+              accept=".pdf,.doc,.docx"
+              aria-describedby="arquivo-ajuda"
+            />
+            <p id="arquivo-ajuda">
+              Envie um arquivo válido. Se você não tiver currículo, pode enviar um portfólio simples.
+            </p>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Bloco 3 — Detalhes do Evento</legend>
+
+          <div>
+            <label for="camiseta">Tamanho da camiseta *</label><br />
+            <select id="camiseta" name="camiseta" required>
+              <option value="" selected disabled>Selecione uma opção</option>
+              <option value="P">P</option>
+              <option value="M">M</option>
+              <option value="G">G</option>
+              <option value="GG">GG</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="motivacao">Carta de motivação *</label><br />
+            <textarea
+              id="motivacao"
+              name="motivacao"
+              required
+              minlength="40"
+              maxlength="800"
+              rows="8"
+              cols="50"
+              placeholder="Explique por que você quer participar do hackathon..."
+            ></textarea>
+          </div>
+        </fieldset>
+
+        <div>
+          <button type="submit">Enviar inscrição</button>
+          <button type="reset">Limpar</button>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 1º Hackathon de Informática da Escola — Página de inscrição</p>
+  </footer>
+</body>
+</html>

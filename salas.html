@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Study2Gether | Salas</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Salas de estudo virtuais do Study2Gether.">
+
+  <link rel="stylesheet" href="style.claro.css">
+</head>
+
+<body>
+  <a href="#conteudo">Pular para o conteúdo</a>
+
+  <header>
+    <h1 class="brand">
+      <span class="brand__study">Study</span><span class="brand__rest">2Gether</span>
+    </h1>
+
+    <nav aria-label="Menu Principal">
+      <ul>
+       <li><a href="index.html">Início</a></li>
+        <li><a href="biblioteca.html">Biblioteca</a></li>
+        <li><a href="salas.html">Salas</a></li>
+        <li><a href="comunidade.html">Comunidade</a></li>
+        <li><a href="calendario.html">Calendário</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <aside>
+    <section aria-labelledby="dados-perfil">
+      <h4 id="dados-perfil">Nome</h4>
+      <dl>
+        <dt><strong></strong></dt><dd></dd>
+        <dt><strong></strong></dt><dd></dd>
+        <dt><strong></strong></dt><dd></dd>
+        <dt><strong></strong></dt><dd></dd>
+      </dl>
+    </section>
+
+    <p>Nível: | Pontos:</p>
+    <p><strong></strong></p>
+  </aside>
+
+  <main id="conteudo">
+    <section id="sala">
+      <div class="section-head">
+        <h2>Salas de Estudo Virtuais</h2>
+      </div>
+
+      <fieldset>
+        <legend>Sala: Name xxx</legend>
+
+        <div class="room-layout">
+
+          <div class="room-main">
+            <h4>Transmissão ao Vivo / Câmera</h4>
+
+            <div class="video-placeholder">
+              <p>[Espaço para WebRTC / Transmissão de Vídeo]</p>
+            </div>
+
+            <div id="pomodoro" class="pomodoro">
+              <strong>Timer Pomodoro:</strong> <span>25:00</span>
+              <button type="button">Iniciar Foco</button>
+            </div>
+
+            <section aria-label="Replay das sessões" class="replay">
+              <h4>Últimas sessões (replay - 7 dias)</h4>
+
+              <article class="replay-item">
+                <p><strong>Sessão:</strong> Grupo de Cálculo II</p>
+                <p><strong>Data:</strong> <time datetime="2026-02-20T19:00">20/02/2026 - 19:00</time></p>
+                <button type="button">Ver replay</button>
+              </article>
+
+              <article class="replay-item">
+                <p><strong>Sessão:</strong> Revisão de Física</p>
+                <p><strong>Data:</strong> <time datetime="2026-02-19T20:30">19/02/2026 - 20:30</time></p>
+                <button type="button">Ver replay</button>
+              </article>
+
+              <p class="replay-note">
+                <em>Obs: replays ficam disponíveis por 7 dias.</em>
+              </p>
+            </section>
+          </div>
+
+          <div class="room-side">
+            <h4>Chat da Sala</h4>
+
+            <div class="chat-box">
+              <p><strong>Pessoa 1:</strong> momomomom</p>
+              <p><strong>Pessoa 2:</strong> kgkgkgkgkgkg?</p>
+            </div>
+
+            <h4>Minhas Metas hoje</h4>
+            <ul class="goals">
+              <li><label><input type="checkbox"> Fazer pipipi</label></li>
+              <li><label><input type="checkbox"> Ler mimimim</label></li>
+            </ul>
+
+            <section aria-label="Tracker de Foco" class="tracker">
+              <h4>Tracker de Foco (sincronizado)</h4>
+              <p class="tracker-status"><strong>Status:</strong> focando / pausa</p>
+              <p class="tracker-note">
+                <em>Placeholder: depois será atualizado em tempo real para todos na sala.</em>
+              </p>
+            </section>
+
+            <button type="button" class="btn-block">Abrir Quadro Branco</button>
+          </div>
+
+        </div>
+      </fieldset>
+
+      <fieldset class="rooms-list">
+        <legend>Outras salas</legend>
+
+        <article class="room-item room-item--border">
+          <h4>Sala: Matemática (ENEM)</h4>
+          <p>Pessoas online: 12 • Foco: exercícios</p>
+          <button type="button">Entrar</button>
+        </article>
+
+        <article class="room-item">
+          <h4>Sala: Programação (Python)</h4>
+          <p>Pessoas online: 8 • Foco: lógica</p>
+          <button type="button">Entrar</button>
+        </article>
+      </fieldset>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Study2Gether - Todos os direitos reservados.</p>
+
+    <nav aria-label="Links Úteis">
+      <ul>
+        <li><a href="#privacidade">Política de Privacidade</a></li>
+        <li><a href="#termos">Termos de Uso</a></li>
+        <li><a href="#baixar-dados">Baixar meus dados</a></li>
+        <li><a href="#configuracoes">Configurações</a></li>
+        <li><a href="#excluir-conta">Excluir minha conta</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+    </nav>
+  </footer>
+</body>
+</html>

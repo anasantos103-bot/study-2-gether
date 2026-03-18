@@ -6,10 +6,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Comunidade Study2Gether: dúvidas, respostas e colaboração.">
 
+  <meta name="theme-color" content="#4A90E2">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
   <link rel="stylesheet" href="style.claro.css">
 </head>
 
-<body>
+<body class="page-home">
   <a href="#conteudo">Pular para o conteúdo</a>
 
   <header>
@@ -29,28 +33,32 @@
   </header>
 
   <aside>
-  <h3>Meu Perfil</h3>
+    <div class="sidebar-content">
+      <h3>Meu Perfil</h3>
+    </div>
 
-  <details class="profile-menu">
-    <summary class="profile-button">
-      <div class="profile-button__avatar">
-        <img src="https://via.placeholder.com/48" alt="Foto de perfil de Cloud">
-      </div>
+    <div class="sidebar-user">
+      <details class="profile-menu">
+        <summary class="profile-button">
+          <div class="profile-button__avatar">
+            <img src="https://via.placeholder.com/48" alt="Foto de perfil de Cloud">
+          </div>
 
-      <div class="profile-button__info">
-        <strong>Cloud</strong>
-        <span>Ausente</span>
-      </div>
-    </summary>
+          <div class="profile-button__info">
+            <strong>Cloud</strong>
+            <span>Disponível</span>
+          </div>
+        </summary>
 
-    <nav aria-label="Menu do perfil" class="profile-dropdown">
-      <ul>
-        <li><a href="perfil.html">Visualizar perfil</a></li>
-        <li><a href="editar-perfil.html">Editar perfil</a></li>
-      </ul>
-    </nav>
-  </details>
-</aside>
+        <nav aria-label="Menu do perfil" class="profile-dropdown">
+          <ul>
+            <li><a href="perfil.html">Visualizar perfil</a></li>
+            <li><a href="editar-perfil.html">Editar perfil</a></li>
+          </ul>
+        </nav>
+      </details>
+    </div>
+  </aside>
 
   <main id="conteudo">
     <section id="duvidas" class="community">
@@ -59,8 +67,6 @@
       </div>
 
       <div class="qa-layout">
-
-        <!-- Coluna esquerda: postar dúvida -->
         <div class="qa-compose">
           <form action="/enviar-duvida" method="POST" enctype="multipart/form-data" class="qa-form">
             <fieldset>
@@ -98,7 +104,6 @@
           </form>
         </div>
 
-        <!-- Coluna direita: feed de dúvidas -->
         <div class="qa-feed">
           <fieldset class="qa-feed-card">
             <legend>Dúvidas Recentes</legend>
@@ -157,7 +162,6 @@
             </article>
           </fieldset>
         </div>
-
       </div>
     </section>
   </main>

@@ -2,13 +2,18 @@
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8">
-  <title>Study2Gether | Biblioteca</title>
+  <title>Study2Gether | Calendário</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Calendário e planejamento de estudos do Study2Gether.">
+
+  <meta name="theme-color" content="#4A90E2">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
   <link rel="stylesheet" href="style.claro.css">
 </head>
 
-<body>
+<body class="page-home">
   <a href="#conteudo">Pular para o conteúdo</a>
 
   <header>
@@ -28,78 +33,92 @@
   </header>
 
   <aside>
-    <section aria-labelledby="dados-perfil">
-      <h4 id="dados-perfil">Nome</h4>
-      <dl>
-        <dt><strong></strong></dt><dd></dd>
-        <dt><strong></strong></dt><dd></dd>
-        <dt><strong></strong></dt><dd></dd>
-        <dt><strong></strong></dt><dd></dd>
-      </dl>
-    </section>
+    <div class="sidebar-content">
+      <h3>Meu Perfil</h3>
+    </div>
 
-    <p>Nível: | Pontos:</p>
-    <p><strong></strong></p>
+    <div class="sidebar-user">
+      <details class="profile-menu">
+        <summary class="profile-button">
+          <div class="profile-button__avatar">
+            <img src="https://via.placeholder.com/48" alt="Foto de perfil de Cloud">
+          </div>
+
+          <div class="profile-button__info">
+            <strong>Cloud</strong>
+            <span>Disponível</span>
+          </div>
+        </summary>
+
+        <nav aria-label="Menu do perfil" class="profile-dropdown">
+          <ul>
+            <li><a href="perfil.html">Visualizar perfil</a></li>
+            <li><a href="editar-perfil.html">Editar perfil</a></li>
+          </ul>
+        </nav>
+      </details>
+    </div>
   </aside>
 
   <main id="conteudo">
-    <section id="biblioteca" class="library">
+    <section id="calendario" class="calendar-page">
       <div class="section-head">
-        <h2>Biblioteca de Materiais</h2>
+        <h2>Calendário de Estudos</h2>
       </div>
 
-      <fieldset class="library-filter">
-        <legend>Filtrar Conteúdo</legend>
+      <fieldset class="calendar-form-card">
+        <legend>Novo compromisso</legend>
 
-        <form class="library-form">
-          <label for="busca">Palavra-chave:</label>
+        <form class="calendar-form">
+          <label for="titulo-evento">Título:</label>
           <input
-            type="search"
-            id="busca"
-            placeholder="Ex: Integrais, Python"
+            type="text"
+            id="titulo-evento"
+            name="titulo-evento"
+            placeholder="Ex: Revisão de Matemática"
           >
 
-          <label for="materia">Disciplina:</label>
-          <select id="materia">
-            <option>Todas</option>
-            <option>Português</option>
-            <option>Matemática</option>
-            <option>Física</option>
-            <option>Biologia</option>
+          <label for="data-evento">Data:</label>
+          <input
+            type="date"
+            id="data-evento"
+            name="data-evento"
+          >
+
+          <label for="hora-evento">Hora:</label>
+          <input
+            type="time"
+            id="hora-evento"
+            name="hora-evento"
+          >
+
+          <label for="tipo-evento">Tipo:</label>
+          <select id="tipo-evento" name="tipo-evento">
+            <option>Estudo</option>
+            <option>Prova</option>
+            <option>Trabalho</option>
+            <option>Reunião</option>
           </select>
 
-          <label for="nivel">Nível:</label>
-          <select id="nivel">
-            <option>Básico</option>
-            <option>Intermediário</option>
-            <option>Avançado</option>
-          </select>
-
-          <button type="submit">Buscar</button>
+          <button type="submit">Adicionar</button>
         </form>
       </fieldset>
 
-      <fieldset class="library-list">
-        <legend>Materiais Disponíveis</legend>
+      <fieldset class="calendar-list">
+        <legend>Próximos eventos</legend>
 
-        <article class="material-card">
-          <h4>Resumo de Funções</h4>
-          <ul class="material-meta">
-            <li><strong>Disciplina:</strong> Matemática</li>
-            <li><strong>Tipo:</strong> PDF</li>
-            <li><strong>Ano:</strong> 2026</li>
-          </ul>
-          <button type="button">Baixar</button>
+        <article class="calendar-item">
+          <h4>Revisão de Física</h4>
+          <p><strong>Data:</strong> 18/03/2026</p>
+          <p><strong>Hora:</strong> 19:00</p>
+          <p><strong>Tipo:</strong> Estudo</p>
         </article>
 
-        <article class="material-card">
-          <h4>Mapa Mental – Revolução Francesa</h4>
-          <ul class="material-meta">
-            <li><strong>Disciplina:</strong> História</li>
-            <li><strong>Tipo:</strong> Mapa Mental</li>
-            <li><strong>Ano:</strong> 2025</li>
-          </ul>
-          <button type="button">Baixar</button>
+        <article class="calendar-item">
+          <h4>Simulado de Matemática</h4>
+          <p><strong>Data:</strong> 20/03/2026</p>
+          <p><strong>Hora:</strong> 08:00</p>
+          <p><strong>Tipo:</strong> Prova</p>
         </article>
       </fieldset>
     </section>

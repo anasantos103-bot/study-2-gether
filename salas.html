@@ -10,13 +10,20 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
-  <link rel="stylesheet" href="style.claro.css">
+  <link rel="stylesheet" href="base.css">
+  <link rel="stylesheet" href="layout.css">
+  <link rel="stylesheet" href="components.css">
+  <link rel="stylesheet" href="pages.css">
+  <link rel="stylesheet" href="responsive.css">
 </head>
 
 <body class="page-home">
-  <a href="#conteudo">Pular para o conteúdo</a>
+  <a href="#conteudo" class="sr-only">Pular para o conteúdo</a>
 
   <header>
+    <button id="menu-toggle" class="menu-toggle btn btn--icon" aria-label="Abrir menu">
+      ☰
+    </button>
     <h1 class="brand">
       <span class="brand__study">Study</span><span class="brand__rest">2Gether</span>
     </h1>
@@ -25,142 +32,177 @@
       <ul>
         <li><a href="index.html">Início</a></li>
         <li><a href="biblioteca.html">Biblioteca</a></li>
-        <li><a href="salas.html">Salas</a></li>
+        <li><a href="salas.html" aria-current="page">Salas</a></li>
         <li><a href="comunidade.html">Comunidade</a></li>
         <li><a href="calendario.html">Calendário</a></li>
       </ul>
     </nav>
   </header>
 
-  <aside>
-    <div class="sidebar-content">
-      <h3>Meu Perfil</h3>
-    </div>
+<aside class="sidebar">
+<div class="sidebar-footer">
+  <div class="user-pill-container card-soft">
+    
+    <details class="user-profile-wrapper">
+      <summary class="user-pill-summary" title="Ver opções de perfil">
+        <div class="user-avatar-small">
+          <img src="https://via.placeholder.com/32" alt="Foto">
+          <span class="status-indicator online"></span>
+        </div>
+        <div class="user-text-small">
+          <strong>Cloud</strong>
+          <span>Online</span>
+        </div>
+      </summary>
 
-    <div class="sidebar-user">
-      <details class="profile-menu">
-        <summary class="profile-button">
-          <div class="profile-button__avatar">
-            <img src="https://via.placeholder.com/48" alt="Foto de perfil de Cloud">
+      <nav class="user-popover-menu">
+        <div class="popover-header-area">
+          <a href="editar-perfil.html" class="avatar-edit-link" title="Mudar Avatar">
+            <img src="https://via.placeholder.com/64" alt="Avatar Maior">
+            <div class="edit-overlay"><span class="icon-camera"></span></div>
+          </a>
+        </div>
+        <div class="popover-content">
+          <div class="popover-user-titles">
+            <h4>Cloud</h4>
           </div>
-
-          <div class="profile-button__info">
-            <strong>Cloud</strong>
-            <span>Disponível</span>
+          <hr> 
+          <div class="popover-actions">
+            <a href="editar-perfil.html" class="btn-primary-sm">Editar Perfil</a>                        
+            <a href="sair.html" class="btn-subtle-sm" style="color: var(--danger);">Mudar de Conta</a>         
           </div>
-        </summary>
+        </div>
+      </nav>
+    </details>
 
-        <nav aria-label="Menu do perfil" class="profile-dropdown">
-          <ul>
-            <li><a href="perfil.html">Visualizar perfil</a></li>
-            <li><a href="editar-perfil.html">Editar perfil</a></li>
+    <details class="settings-wrapper">
+      <summary class="user-settings-btn" title="Configurações">
+        ⚙️
+      </summary>
+
+      <nav class="user-popover-menu settings-popover" aria-label="Links Úteis">
+        <div class="popover-content">
+          <hr>
+          <ul class="settings-links-list">
+            <li><a href="#configuracoes">Configurações</a></li>
+            <li><a href="#privacidade">Privacidade</a></li>
+            <li><a href="#termos">Termos de Uso</a></li>
+            <li><a href="#baixar-dados">Baixar meus dados</a></li>
+            <li><a href="#contato">Contato</a></li>          
           </ul>
-        </nav>
-      </details>
-    </div>
-  </aside>
+        </div>
+      </nav>
+    </details>
+
+  </div>
+</div>
+</aside>
 
   <main id="conteudo">
-    <section id="sala">
-      <div class="section-head">
+    <section id="sala" class="rooms-page">
+      <header class="section-head">
         <h2>Salas de Estudo Virtuais</h2>
-      </div>
+      </header>
 
-      <fieldset>
-        <legend>Sala: Name xxx</legend>
+      <section class="current-room card">
+        <header class="room-header">
+          <h3>Sala: Grupo de Estudos Alpha</h3>
+        </header>
 
         <div class="room-layout">
           <div class="room-main">
-            <h4>Transmissão ao Vivo / Câmera</h4>
-
-            <div class="video-placeholder">
+            <h4>Transmissão ao Vivo</h4>
+            <div class="video-placeholder card-soft">
               <p>[Espaço para WebRTC / Transmissão de Vídeo]</p>
             </div>
 
-            <div id="pomodoro" class="pomodoro">
+            <div id="pomodoro" class="pomodoro card-soft">
               <strong>Timer Pomodoro:</strong> <span>25:00</span>
-              <button type="button">Iniciar Foco</button>
+              <button type="button" class="btn btn--primary">Iniciar Foco</button>
             </div>
 
             <section aria-label="Replay das sessões" class="replay">
-              <h4>Últimas sessões (replay - 7 dias)</h4>
+              <h4>Últimas sessões (Replays)</h4>
 
-              <article class="replay-item">
-                <p><strong>Sessão:</strong> Grupo de Cálculo II</p>
-                <p><strong>Data:</strong> <time datetime="2026-02-20T19:00">20/02/2026 - 19:00</time></p>
-                <button type="button">Ver replay</button>
+              <article class="replay-item card-soft">
+                <div class="replay-info">
+                  <p><strong>Sessão:</strong> Grupo de Cálculo II</p>
+                  <p><time datetime="2026-02-20T19:00">20/02/2026 - 19:00</time></p>
+                </div>
+                <button type="button" class="btn btn--sm btn--outline">Ver replay</button>
               </article>
 
-              <article class="replay-item">
-                <p><strong>Sessão:</strong> Revisão de Física</p>
-                <p><strong>Data:</strong> <time datetime="2026-02-19T20:30">19/02/2026 - 20:30</time></p>
-                <button type="button">Ver replay</button>
+              <article class="replay-item card-soft">
+                <div class="replay-info">
+                  <p><strong>Sessão:</strong> Revisão de Física</p>
+                  <p><time datetime="2026-02-19T20:30">19/02/2026 - 20:30</time></p>
+                </div>
+                <button type="button" class="btn btn--sm btn--outline">Ver replay</button>
               </article>
 
               <p class="replay-note">
-                <em>Obs: replays ficam disponíveis por 7 dias.</em>
+                <small><em>Obs: replays ficam disponíveis por 7 dias.</em></small>
               </p>
             </section>
           </div>
 
           <div class="room-side">
             <h4>Chat da Sala</h4>
-
-            <div class="chat-box">
-              <p><strong>Pessoa 1:</strong> momomomom</p>
-              <p><strong>Pessoa 2:</strong> kgkgkgkgkgkg?</p>
+            <div class="chat-box card-soft">
+              <div class="chat-messages">
+                <p><strong>Pessoa 1:</strong> Bora focar na integral?</p>
+                <p><strong>Pessoa 2:</strong> Alguém tem o link do PDF?</p>
+              </div>
             </div>
 
-            <h4>Minhas Metas hoje</h4>
-            <ul class="goals">
-              <li><label><input type="checkbox"> Fazer pipipi</label></li>
-              <li><label><input type="checkbox"> Ler mimimim</label></li>
-            </ul>
+            <h4>Minhas Metas</h4>
+            <div class="goals-container card-soft">
+              <ul class="goals">
+                <li><label><input type="checkbox"> Resolver lista 3</label></li>
+                <li><label><input type="checkbox"> Revisar capítulo 2</label></li>
+              </ul>
+            </div>
 
-            <section aria-label="Tracker de Foco" class="tracker">
-              <h4>Tracker de Foco (sincronizado)</h4>
-              <p class="tracker-status"><strong>Status:</strong> focando / pausa</p>
-              <p class="tracker-note">
-                <em>Placeholder: depois será atualizado em tempo real para todos na sala.</em>
-              </p>
+            <section aria-label="Tracker de Foco" class="tracker card-soft">
+              <h4>Status de Foco</h4>
+              <p class="tracker-status"><strong>Atividade:</strong> Focando...</p>
             </section>
 
-            <button type="button" class="btn-block">Abrir Quadro Branco</button>
+            <button type="button" class="btn btn--primary btn--block">Abrir Quadro Branco</button>
           </div>
         </div>
-      </fieldset>
+      </section>
 
-      <fieldset class="rooms-list">
-        <legend>Outras salas</legend>
+      <section class="rooms-list-section">
+        <header>
+          <h3>Outras salas disponíveis</h3>
+        </header>
 
-        <article class="room-item room-item--border">
-          <h4>Sala: Matemática (ENEM)</h4>
-          <p>Pessoas online: 12 • Foco: exercícios</p>
-          <button type="button">Entrar</button>
-        </article>
+        <div class="rooms-grid">
+          <article class="room-card card">
+            <h4>Matemática (ENEM)</h4>
+            <p>12 estudantes online • Foco: Exercícios</p>
+            <button type="button" class="btn btn--secondary btn--block">Entrar</button>
+          </article>
 
-        <article class="room-item">
-          <h4>Sala: Programação (Python)</h4>
-          <p>Pessoas online: 8 • Foco: lógica</p>
-          <button type="button">Entrar</button>
-        </article>
-      </fieldset>
+          <article class="room-card card">
+            <h4>Programação (Python)</h4>
+            <p>8 estudantes online • Foco: Lógica</p>
+            <button type="button" class="btn btn--secondary btn--block">Entrar</button>
+          </article>
+        </div>
+      </section>
     </section>
   </main>
 
   <footer>
-    <p>&copy; 2026 Study2Gether - Todos os direitos reservados.</p>
-
-    <nav aria-label="Links Úteis">
-      <ul>
-        <li><a href="#privacidade">Política de Privacidade</a></li>
-        <li><a href="#termos">Termos de Uso</a></li>
-        <li><a href="#baixar-dados">Baixar meus dados</a></li>
-        <li><a href="#configuracoes">Configurações</a></li>
-        <li><a href="#excluir-conta">Excluir minha conta</a></li>
-        <li><a href="#contato">Contato</a></li>
-      </ul>
-    </nav>
+     </nav>
   </footer>
+<div class="overlay" id="overlay"></div>
+  <button id="voltarTopo" class="btn btn--icon" aria-label="Voltar ao topo">⬆</button>
+  <script src="script.js"></script>
+  <script src="db.js"></script>
+  <script src="controller.js"></script>
+
 </body>
 </html>

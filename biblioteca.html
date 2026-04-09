@@ -5,13 +5,20 @@
   <title>Study2Gether | Biblioteca</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link rel="stylesheet" href="style.claro.css">
+  <link rel="stylesheet" href="base.css">
+  <link rel="stylesheet" href="layout.css">
+  <link rel="stylesheet" href="components.css">
+  <link rel="stylesheet" href="pages.css">
+  <link rel="stylesheet" href="responsive.css">
 </head>
 
 <body>
   <a href="#conteudo">Pular para o conteúdo</a>
 
   <header>
+    <button id="menu-toggle" class="menu-toggle btn btn--icon" aria-label="Abrir menu">
+      ☰
+    </button>
     <h1 class="brand">
       <span class="brand__study">Study</span><span class="brand__rest">2Gether</span>
     </h1>
@@ -27,96 +34,303 @@
     </nav>
   </header>
 
-  <aside>
-  <h3>Meu Perfil</h3>
+<aside class="sidebar">
+<div class="sidebar-footer">
+  <div class="user-pill-container card-soft">
+    
+    <details class="user-profile-wrapper">
+      <summary class="user-pill-summary" title="Ver opções de perfil">
+        <div class="user-avatar-small">
+          <img src="https://via.placeholder.com/32" alt="Foto">
+          <span class="status-indicator online"></span>
+        </div>
+        <div class="user-text-small">
+          <strong>Cloud</strong>
+          <span>Online</span>
+        </div>
+      </summary>
 
-  <details class="profile-menu">
-    <summary class="profile-button">
-      <div class="profile-button__avatar">
-        <img src="https://via.placeholder.com/48" alt="Foto de perfil de Cloud">
-      </div>
+      <nav class="user-popover-menu">
+        <div class="popover-header-area">
+          <a href="editar-perfil.html" class="avatar-edit-link" title="Mudar Avatar">
+            <img src="https://via.placeholder.com/64" alt="Avatar Maior">
+            <div class="edit-overlay"><span class="icon-camera"></span></div>
+          </a>
+        </div>
+        <div class="popover-content">
+          <div class="popover-user-titles">
+            <h4>Cloud</h4>
+          </div>
+          <hr> 
+          <div class="popover-actions">
+            <a href="editar-perfil.html" class="btn-primary-sm">Editar Perfil</a>                        
+            <a href="sair.html" class="btn-subtle-sm" style="color: var(--danger);">Mudar de Conta</a>         
+          </div>
+        </div>
+      </nav>
+    </details>
 
-      <div class="profile-button__info">
-        <strong>Cloud</strong>
-        <span>Ausente</span>
-      </div>
-    </summary>
+    <details class="settings-wrapper">
+      <summary class="user-settings-btn" title="Configurações">
+        ⚙️
+      </summary>
 
-    <nav aria-label="Menu do perfil" class="profile-dropdown">
-      <ul>
-        <li><a href="perfil.html">Visualizar perfil</a></li>
-        <li><a href="editar-perfil.html">Editar perfil</a></li>
-      </ul>
-    </nav>
-  </details>
+      <nav class="user-popover-menu settings-popover" aria-label="Links Úteis">
+        <div class="popover-content">
+          <hr>
+          <ul class="settings-links-list">
+            <li><a href="#configuracoes">Configurações</a></li>
+            <li><a href="#privacidade">Privacidade</a></li>
+            <li><a href="#termos">Termos de Uso</a></li>
+            <li><a href="#baixar-dados">Baixar meus dados</a></li>
+            <li><a href="#contato">Contato</a></li>          
+          </ul>
+        </div>
+      </nav>
+    </details>
+
+  </div>
+</div>
 </aside>
 
-  <main id="conteudo">
+<main id="conteudo">
+<section id="upload-material-section">
+      <details class="upload-accordion">
+        
+        <summary class="upload-summary-btn">
+          <span>➕ Compartilhar Novo Material</span>
+        </summary>
+        
+        <div class="upload-content card-soft">
+          <div class="section-head">
+            <h2>Enviar Arquivo</h2>
+            <p class="section-subtitle">Ajude a comunidade enviando seus resumos, exercícios e mapas mentais.</p>
+          </div>
+
+          <form class="upload-form" action="#" method="POST" enctype="multipart/form-data">
+            <div class="form-row form-row--full">
+              <label for="titulo">Título do Material <span class="req">*</span></label>
+              <input type="text" id="titulo" placeholder="Ex: Resumo Completo de Funções do 2º Grau" required>
+            </div>
+
+            <div class="form-row form-row--full">
+              <label for="descricao">Descrição Breve</label>
+              <textarea id="descricao" rows="2" placeholder="O que tem nesse material? (Ex: Fórmulas de Bhaskara, gráficos e 10 exercícios resolvidos)"></textarea>
+            </div>
+
+            <div class="form-grid-4">
+              <div class="form-row">
+                <label for="post-materia">Disciplina <span class="req">*</span></label>
+                <select id="post-materia" required>
+                  <option value="" disabled selected>Selecione...</option>
+                  <option value="matematica">Matemática</option>
+                  <option value="fisica">Física</option>
+                  <option value="quimica">Química</option>
+                </select>
+              </div>
+
+              <div class="form-row">
+                <label for="post-assunto">Assunto</label>
+                <input type="text" id="post-assunto" placeholder="Ex: Geometria Plana">
+              </div>
+
+              <div class="form-row">
+                <label for="post-tipo">Tipo <span class="req">*</span></label>
+                <select id="post-tipo" required>
+                  <option value="resumo">Resumo</option>
+                  <option value="exercicios">Exercícios</option>
+                  <option value="simulado">Simulado</option>
+                  <option value="mapa-mental">Mapa Mental</option>
+                </select>
+              </div>
+
+              <div class="form-row">
+                <label for="post-nivel">Nível</label>
+                <select id="post-nivel">
+                  <option value="basico">Básico</option>
+                  <option value="intermediario" selected>Intermediário</option>
+                  <option value="avancado">Avançado</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-grid-3">
+              <div class="form-row">
+                <label for="post-ano">Ano de Referência</label>
+                <input type="number" id="post-ano" placeholder="Ex: 2026">
+              </div>
+              
+              <div class="form-row">
+                <label for="post-tags">Tags (separadas por vírgula)</label>
+                <input type="text" id="post-tags" placeholder="enem, revisão, fórmulas">
+              </div>
+
+              <div class="form-row">
+                <label for="post-arquivo">Arquivo (PDF, Imagem) <span class="req">*</span></label>
+                <input type="file" id="post-arquivo" accept=".pdf, .jpg, .png" required>
+              </div>
+            </div>
+
+            <div class="form-actions">
+              <button type="reset" class="btn-subtle-sm">Cancelar</button>
+              <button type="submit" class="btn-primary">Publicar Material</button>
+            </div>
+          </form>
+        </div>
+      </details>
+    </section>
+
+    <hr class="section-divider">
+
     <section id="biblioteca" class="library">
       <div class="section-head">
-        <h2>Biblioteca de Materiais</h2>
+        <h2>Explorar Biblioteca</h2>
       </div>
 
-      <fieldset class="library-filter">
-        <legend>Filtrar Conteúdo</legend>
+      <fieldset class="library-filter card-soft">
+        <legend>Buscar Conteúdo</legend>
+        <div class="form-row">
+                <label for="post-materia">Disciplina <span class="req">*</span></label>
+                <select id="post-materia" required>
+                  <option value="" disabled selected>Selecione a disciplina...</option>
+                  <option value="matematica">Matemática</option>
+                  <option value="fisica">Física</option>
+                  <option value="quimica">Química</option>
+                  <option value="biologia">Biologia</option>
+                  <option value="portugues">Português & Literatura</option>
+                  <option value="redacao">Redação</option>
+                  <option value="historia">História</option>
+                  <option value="geografia">Geografia</option>
+                  <option value="filosofia">Filosofia</option>
+                  <option value="sociologia">Sociologia</option>
+                  <option value="ingles">Inglês</option>
+                  <option value="espanhol">Espanhol</option>
+                  <option value="tecnologia">Tecnologia & Programação</option>
+                  <option value="atualidades">Atualidades</option>
+                </select>
+              </div>
 
-        <form class="library-form">
-          <label for="busca">Palavra-chave:</label>
-          <input
-            type="search"
-            id="busca"
-            placeholder="Ex: Integrais, Python"
-          >
-
-          <label for="materia">Disciplina:</label>
-          <select id="materia">
-            <option>Todas</option>
-            <option>Português</option>
-            <option>Matemática</option>
-            <option>Física</option>
-            <option>Biologia</option>
-          </select>
-
-          <label for="nivel">Nível:</label>
-          <select id="nivel">
-            <option>Básico</option>
-            <option>Intermediário</option>
-            <option>Avançado</option>
-          </select>
-
-          <button type="submit">Buscar</button>
-        </form>
+              <div class="form-row">
+                <label for="post-tipo">Tipo <span class="req">*</span></label>
+                <select id="post-tipo" required>
+                  <option value="" disabled selected>Tipo de material...</option>
+                  <option value="resumo">Resumo</option>
+                  <option value="exercicios">Lista de Exercícios</option>
+                  <option value="mapa-mental">Mapa Mental</option>
+                  <option value="simulado">Simulado</option>
+                  <option value="prova">Prova Anterior</option>
+                  <option value="apostila">Apostila / Livro</option>
+                  <option value="flashcards">Flashcards</option>
+                  <option value="anotacoes">Anotações de Aula</option>
+                </select>
+              </div>
       </fieldset>
 
-      <fieldset class="library-list">
-  <legend>Materiais Disponíveis</legend>
+      <div class="library-list">
+        
+        <article class="material-card card">
+          <div class="material-header">
+            <div class="material-badges">
+              <span class="badge badge--solved">Matemática</span>
+              <span class="badge badge--open">Resumo</span>
+            </div>
+            <span class="material-date">Postado hoje</span>
+          </div>
 
-  <article class="material-card">
-    <h4>Resumo de Funções</h4>
-    <ul class="material-meta">
-      <li><strong>Disciplina:</strong> Matemática</li>
-      <li><strong>Tipo:</strong> PDF</li>
-      <li><strong>Ano:</strong> 2026</li>
-    </ul>
-    <button type="button">Baixar</button>
-  </article>
-</fieldset>
+          <h4 class="material-title">Funções do 2º Grau: Teoria e Gráficos</h4>
+          <p class="material-desc">Resumo completo com passo a passo para encontrar raízes, vértice e montar o gráfico da parábola.</p>
+
+          <div class="material-meta-grid">
+            <div class="meta-item">
+              <span class="meta-label">Autor</span>
+              <span class="meta-value author-link">@Cloud</span>
+            </div>
+            <div class="meta-item">
+              <span class="meta-label">Nível</span>
+              <span class="meta-value">Intermediário</span>
+            </div>
+            <div class="meta-item">
+              <span class="meta-label">Ano</span>
+              <span class="meta-value">2026</span>
+            </div>
+            <div class="meta-item">
+              <span class="meta-label">Tamanho</span>
+              <span class="meta-value">2.4 MB (PDF)</span>
+            </div>
+          </div>
+
+          <div class="material-tags">
+            <span>#enem</span>
+            <span>#funções</span>
+            <span>#revisão</span>
+          </div>
+
+          <div class="material-footer">
+            <div class="material-social">
+              <button class="social-btn" title="Curtir">👍 45</button>
+              <button class="social-btn" title="Comentários">💬 12</button>
+            </div>
+            <button type="button" class="btn-primary-sm">Baixar Arquivo</button>
+          </div>
+        </article>
+
+        <article class="material-card card">
+          <div class="material-header">
+            <div class="material-badges">
+              <span class="badge badge--warning">Física</span>
+              <span class="badge badge--mentor">Exercícios</span>
+            </div>
+            <span class="material-date">12 Out 2026</span>
+          </div>
+
+          <h4 class="material-title">Lista Dinâmica de Leis de Newton</h4>
+          <p class="material-desc">30 exercícios focados em blocos, tração e atrito. Gabarito comentado no final do documento.</p>
+
+          <div class="material-meta-grid">
+            <div class="meta-item">
+              <span class="meta-label">Autor</span>
+              <span class="meta-value author-link">@Profa_Ana</span>
+            </div>
+            <div class="meta-item">
+              <span class="meta-label">Nível</span>
+              <span class="meta-value">Avançado</span>
+            </div>
+            <div class="meta-item">
+              <span class="meta-label">Ano</span>
+              <span class="meta-value">2026</span>
+            </div>
+            <div class="meta-item">
+              <span class="meta-label">Tamanho</span>
+              <span class="meta-value">1.1 MB (PDF)</span>
+            </div>
+          </div>
+
+          <div class="material-tags">
+            <span>#dinâmica</span>
+            <span>#fuvest</span>
+          </div>
+
+          <div class="material-footer">
+            <div class="material-social">
+              <button class="social-btn" title="Curtir">👍 128</button>
+              <button class="social-btn" title="Comentários">💬 34</button>
+            </div>
+            <button type="button" class="btn-primary-sm">Baixar Arquivo</button>
+          </div>
+        </article>
+
+      </div>
     </section>
   </main>
 
   <footer>
-    <p>&copy; 2026 Study2Gether - Todos os direitos reservados.</p>
-
-    <nav aria-label="Links Úteis">
-      <ul>
-        <li><a href="#privacidade">Política de Privacidade</a></li>
-        <li><a href="#termos">Termos de Uso</a></li>
-        <li><a href="#baixar-dados">Baixar meus dados</a></li>
-        <li><a href="#configuracoes">Configurações</a></li>
-        <li><a href="#excluir-conta">Excluir minha conta</a></li>
-        <li><a href="#contato">Contato</a></li>
-      </ul>
     </nav>
   </footer>
+  <div class="overlay" id="overlay"></div>
+  <button id="voltarTopo" class="btn btn--icon" aria-label="Voltar ao topo">⬆</button>
+  <script src="script.js"></script>
+  <script src="db.js"></script>
+  <script src="controller.js"></script>
+
 </body>
 </html>

@@ -1,0 +1,413 @@
+/* =========================
+   Study2Gether — Pages (V2.0 Finalizado)
+========================= */
+
+/* =========================
+   HOME
+========================= */
+.home-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-lg);
+}
+
+.home-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--space-md);
+}
+
+.home-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: var(--space-sm);
+}
+
+.home-card-link {
+  margin-top: auto;
+  font-weight: 600;
+  color: var(--brand-blue); 
+  text-decoration: none;
+  font-size: var(--ft-sm);
+  transition: all 0.2s ease; /* Ajustado para 'all' para suavizar tudo */
+}
+
+.home-card-link:hover {
+  text-decoration: underline;
+  filter: brightness(0.8);
+}
+
+/* =========================
+   BIBLIOTECA
+========================= */
+.library-form {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: var(--space-md);
+  align-items: end;
+}
+
+.library-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--space-md);
+}
+
+.material-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.material-meta {
+  list-style: none;
+  font-size: var(--ft-sm);
+  color: var(--text-2);
+  display: grid;
+  gap: var(--space-xs);
+}
+
+.material-meta strong {
+  color: var(--text);
+}
+/* =========================
+   BIBLIOTECA EVOLUÍDA (UPLOAD & CARDS)
+========================= */
+
+/* --- Formulário de Postagem --- */
+.library-upload {
+  padding: var(--space-lg);
+  margin-bottom: var(--space-xl);
+}
+
+.section-subtitle {
+  color: var(--text-2);
+  font-size: var(--ft-sm);
+  margin-bottom: var(--space-md);
+}
+
+.upload-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.form-row {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.form-row label {
+  font-size: var(--ft-sm);
+  font-weight: 600;
+  color: var(--text);
+}
+
+.form-row .req {
+  color: #e74c3c;
+}
+
+.form-row input, 
+.form-row select, 
+.form-row textarea {
+  padding: 10px;
+  border: 1px solid var(--border);
+  border-radius: var(--r-sm);
+  background: var(--panel);
+  color: var(--text);
+  font-family: inherit;
+}
+
+.form-row input:focus,
+.form-row select:focus,
+.form-row textarea:focus {
+  border-color: var(--brand-blue);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(58, 123, 255, 0.15);
+}
+
+/* Grids do Formulário */
+.form-grid-4 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: var(--space-md);
+}
+
+.form-grid-3 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--space-md);
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: var(--space-md);
+  margin-top: var(--space-sm);
+}
+
+.section-divider {
+  border: none;
+  border-top: 1px dashed var(--border);
+  margin: var(--space-xl) 0;
+}
+
+/* --- Cards de Material Evoluídos --- */
+.library-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: var(--space-lg);
+  margin-top: var(--space-md);
+}
+
+.material-card {
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-md);
+  gap: var(--space-sm);
+}
+
+.material-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-xs);
+}
+
+.material-badges {
+  display: flex;
+  gap: var(--space-xs);
+}
+
+.material-date {
+  font-size: 0.7rem;
+  color: var(--text-3);
+}
+
+.material-title {
+  font-size: var(--ft-base);
+  color: var(--text);
+  line-height: 1.3;
+}
+
+.material-desc {
+  font-size: var(--ft-sm);
+  color: var(--text-2);
+  line-height: 1.4;
+  margin-bottom: var(--space-xs);
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* Limita a 2 linhas */
+  -webkit-box-orient: vertical;
+  line-clamp: 2; /* Propriedade padrão moderna */
+  overflow: hidden;
+  text-overflow: ellipsis; /* Garante os '...' no final */
+}
+
+/* Tabela de Metadados (Data, Autor, etc) */
+.material-meta-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  background: var(--panel-soft);
+  padding: 10px;
+  border-radius: var(--r-sm);
+  margin: var(--space-xs) 0;
+}
+
+.meta-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.meta-label {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  color: var(--text-3);
+  font-weight: 700;
+}
+
+.meta-value {
+  font-size: var(--ft-sm);
+  color: var(--text);
+  font-weight: 500;
+}
+
+.author-link {
+  color: var(--brand-blue);
+  cursor: pointer;
+}
+.author-link:hover {
+  text-decoration: underline;
+}
+
+/* Tags */
+.material-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.material-tags span {
+  font-size: 0.7rem;
+  color: var(--brand-blue);
+  background: rgba(58, 123, 255, 0.05);
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+/* Rodapé do Card (Botões e Interações) */
+.material-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto; /* Empurra pro final do card */
+  padding-top: var(--space-sm);
+  border-top: 1px solid var(--border);
+}
+
+.material-social {
+  display: flex;
+  gap: var(--space-sm);
+}
+
+.social-btn {
+  background: none;
+  border: none;
+  color: var(--text-2);
+  font-size: var(--ft-sm);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  transition: color 0.2s;
+}
+
+.social-btn:hover {
+  color: var(--brand-blue);
+}
+/* =========================
+   COMUNIDADE
+========================= */
+.qa-layout {
+  display: grid;
+  grid-template-columns: 1fr 350px;
+  gap: var(--space-lg);
+}
+
+.qa-post {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-md);
+  padding: var(--space-md);
+  border-bottom: 1px solid var(--border);
+}
+
+.qa-post-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.qa-meta {
+  color: var(--text-3);
+  font-size: var(--ft-xs);
+}
+
+.qa-cta {
+  color: var(--brand-blue);
+  font-weight: 600;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  padding: 0;
+  transition: opacity 0.2s ease;
+}
+
+.qa-cta:hover {
+  opacity: 0.7; /* Feedback visual simples para o clique */
+}
+
+/* =========================
+   SALAS DE ESTUDO
+========================= */
+.room-layout {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: var(--space-lg);
+}
+
+.video-placeholder {
+  aspect-ratio: 16 / 9;
+  background: #000; 
+  border-radius: var(--r-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  border: 2px solid var(--border);
+}
+
+.chat-box {
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Ajuste no Destaque de sala ativa */
+.room-item--border {
+  border-left: 4px solid var(--brand-blue) !important;
+  background: var(--active);
+  transition: background 0.3s ease;
+}
+
+/* =========================
+   CALENDÁRIO
+========================= */
+.calendar-form {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: var(--space-sm);
+  margin-bottom: var(--space-lg);
+}
+
+.calendar-item {
+  padding: var(--space-md);
+  border-left: 3px solid var(--brand-blue);
+  background: var(--panel-soft);
+  border-radius: 0 var(--r-sm) var(--r-sm) 0;
+  margin-bottom: var(--space-sm);
+  transition: transform 0.2s ease;
+}
+
+.calendar-item:hover {
+  transform: translateX(4px); /* Pequeno efeito de interação */
+}
+
+.calendar-item h4 {
+  color: var(--text);
+  font-size: var(--ft-base);
+}
+
+/* =========================
+   PERFIL / CONFIGURAÇÕES
+========================= */
+.profile-details {
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  gap: var(--space-xl);
+  align-items: start;
+}
+
+/* Melhorado: Sincronização de foco com o base.css */
+.profile-form input:focus, 
+.profile-form textarea:focus {
+  border-color: var(--brand-blue);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(58, 123, 255, 0.15); /* Sombra mais visível */
+}

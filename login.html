@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Study2Gether | Login</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#4A90E2">
+
+  <style>
+    /* =========================================
+       1. VARIÁVEIS E TOKENS (Importados do base.css)
+       ========================================= */
+    :root {
+      --brand-blue:   #3A7BFF;
+      --brand-green:  #3ED1A5;
+      --brand-purple: #6A4DFF;
+      --primary-color: var(--brand-blue); 
+      --primary-light: var(--hover);
+      --danger:       #EF4444;
+
+      --bg:           #F7F9FC;
+      --panel:        #FFFFFF;
+      --panel-soft:   #FBFCFF;
+      --border:       #E3E8EF;
+      --hover:        #F1F5FF;
+      --active:       #EAF0FF;
+
+      --text:         #1F2A37;
+      --text-2:       #6B7280;
+      --text-3:       #9CA3AF;
+
+      --space-xs:     0.25rem;
+      --space-sm:     0.5rem;
+      --space-md:     1rem;
+      --space-lg:     1.5rem;
+
+      --ft-sm:        0.875rem;
+      --ft-base:      1rem;
+      --ft-lg:        1.25rem;
+      --ft-xl:        2rem;
+
+      --r-xs:         6px;
+      --r-sm:         8px;
+      --shadow-sm:    0 6px 18px rgba(0,0,0,.05);
+      --grad:         linear-gradient(135deg, var(--brand-purple), var(--brand-blue), var(--brand-green));
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg:         #0B0E14;
+        --panel:      #151921;
+        --border:     #2D333D;
+        --hover:      #1C222D;
+        --text:       #F5F7FA;
+        --text-2:     #949BA4;
+      }
+    }
+
+    /* =========================================
+       2. RESET E ESTILOS BÁSICOS
+       ========================================= */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: ui-sans-serif, system-ui, -apple-system, sans-serif;
+      font-size: var(--ft-base);
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+      -webkit-font-smoothing: antialiased;
+      /* Centralizar o login na tela inteira */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    /* =========================================
+       3. COMPONENTES DO LOGIN
+       ========================================= */
+    .login-wrapper {
+      width: 100%;
+      max-width: 400px;
+      padding: var(--space-md);
+    }
+
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: var(--r-sm);
+      box-shadow: var(--shadow-sm);
+      padding: var(--space-lg);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: var(--ft-xl);
+      letter-spacing: 0.2px;
+      margin-bottom: var(--space-xs);
+    }
+
+    .brand__study {
+      background: var(--grad);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      font-weight: 800;
+    }
+
+    .brand__rest {
+      color: var(--text);
+      font-weight: 800;
+    }
+
+    .login-subtitle {
+      text-align: center;
+      color: var(--text-2);
+      font-size: var(--ft-sm);
+      margin-bottom: var(--space-lg);
+    }
+
+    /* Formulário */
+    label {
+      display: block;
+      margin: var(--space-sm) 0 var(--space-xs);
+      color: var(--text-2);
+      font-size: var(--ft-sm);
+      font-weight: 500;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px;
+      font-family: inherit;
+      font-size: var(--ft-sm);
+      border: 1px solid var(--border);
+      border-radius: var(--r-xs);
+      background: var(--bg);
+      color: var(--text);
+      transition: border-color .15s ease, box-shadow .15s ease;
+      margin-bottom: var(--space-sm);
+    }
+
+    input:focus {
+      outline: none;
+      border-color: var(--brand-blue);
+      box-shadow: 0 0 0 3px rgba(58, 123, 255, 0.15);
+    }
+
+    /* Botões */
+    button {
+      width: 100%;
+      font-family: inherit;
+      font-size: var(--ft-base);
+      font-weight: 600;
+      padding: 12px;
+      border: none;
+      border-radius: var(--r-xs);
+      cursor: pointer;
+      transition: all .15s ease;
+      margin-top: var(--space-md);
+    }
+
+    .btn-primary {
+      background: var(--brand-blue);
+      color: #FFFFFF;
+    }
+
+    .btn-primary:hover {
+      filter: brightness(1.1);
+      transform: translateY(-2px);
+    }
+
+    .login-footer {
+      text-align: center;
+      margin-top: var(--space-md);
+      font-size: var(--ft-sm);
+      color: var(--text-2);
+    }
+
+    .login-footer a {
+      color: var(--brand-blue);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .login-footer a:hover {
+      text-decoration: underline;
+    }
+
+    #msg-erro {
+      color: var(--danger);
+      font-size: var(--ft-sm);
+      text-align: center;
+      margin-top: var(--space-sm);
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="login-wrapper">
+    <div class="card">
+      
+      <h1 class="brand">
+        <span class="brand__study">Study</span><span class="brand__rest">2Gether</span>
+      </h1>
+      <p class="login-subtitle">Faça login para acessar sua conta</p>
+
+      <form id="form-login">
+        <label for="nome">Nome de Usuário</label>
+        <input type="text" id="nome" placeholder="Digite seu nome (ex: Cloud)" required>
+
+        <label for="senha">Senha</label>
+        <input type="password" id="senha" placeholder="Digite sua senha" required>
+
+        <p id="msg-erro">Usuário não encontrado. Crie uma conta.</p>
+
+        <button type="submit" class="btn-primary">Entrar na Plataforma</button>
+      </form>
+
+      <div class="login-footer">
+        Não tem uma conta? <a href="#" id="btn-criar">Criar conta rápida</a>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    // ==========================================
+    // 1. BANCO DE DADOS (Cópia do seu db.js)
+    // ==========================================
+    const StudyDB = {
+        dbName: "Study2GetherDB",
+        dbVersion: 1,
+        storeName: "usuarios",
+        iniciar() {
+            return new Promise((resolve, reject) => {
+                const request = indexedDB.open(this.dbName, this.dbVersion);
+                request.onupgradeneeded = (event) => {
+                    const db = event.target.result;
+                    if (!db.objectStoreNames.contains(this.storeName)) {
+                        db.createObjectStore(this.storeName, { keyPath: "id", autoIncrement: true });
+                    }
+                };
+                request.onsuccess = () => resolve(request.result);
+                request.onerror = () => reject("Erro ao abrir IndexedDB: " + request.error);
+            });
+        },
+        async adicionar(item) {
+            const db = await this.iniciar();
+            return new Promise((resolve, reject) => {
+                const transaction = db.transaction([this.storeName], "readwrite");
+                const store = transaction.objectStore(this.storeName);
+                const request = store.put(item);
+                request.onsuccess = () => resolve(request.result);
+                request.onerror = () => reject("Erro ao salvar: " + request.error);
+            });
+        },
+        async buscarTodos() {
+            const db = await this.iniciar();
+            return new Promise((resolve, reject) => {
+                const transaction = db.transaction([this.storeName], "readonly");
+                const store = transaction.objectStore(this.storeName);
+                const request = store.getAll();
+                request.onsuccess = () => resolve(request.result);
+                request.onerror = () => reject("Erro ao buscar: " + request.error);
+            });
+        }
+    };
+
+    // ==========================================
+    // 2. LÓGICA DA PÁGINA DE LOGIN
+    // ==========================================
+    document.addEventListener('DOMContentLoaded', () => {
+      const formLogin = document.getElementById('form-login');
+      const btnCriar = document.getElementById('btn-criar');
+      const msgErro = document.getElementById('msg-erro');
+
+      // TENTAR LOGAR
+      formLogin.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const nomeDigitado = document.getElementById('nome').value.trim();
+        
+        try {
+          const usuarios = await StudyDB.buscarTodos();
+          
+          // Procura se existe algum usuário com o nome digitado (ignorando maiúsculas)
+          const usuarioExiste = usuarios.find(u => u.nome.toLowerCase() === nomeDigitado.toLowerCase());
+
+          if (usuarioExiste) {
+            // Sucesso! Redireciona para o painel principal
+            window.location.href = 'index.html';
+          } else {
+            // Falha
+            msgErro.style.display = 'block';
+            msgErro.innerText = "Usuário não encontrado. Verifique ou crie uma conta.";
+          }
+        } catch (erro) {
+          console.error("Erro no DB:", erro);
+        }
+      });
+
+      // CRIAR CONTA RÁPIDA (Simulação)
+      btnCriar.addEventListener('click', async (e) => {
+        e.preventDefault();
+        const nomeDigitado = document.getElementById('nome').value.trim();
+
+        if(!nomeDigitado) {
+          msgErro.style.display = 'block';
+          msgErro.innerText = "Digite um nome no campo acima antes de criar a conta.";
+          return;
+        }
+
+        const novoUsuario = {
+          nome: nomeDigitado,
+          status: "Novo Estudante",
+          nivelXP: 0,
+          dataCriacao: new Date().toLocaleDateString('pt-BR')
+        };
+
+        await StudyDB.adicionar(novoUsuario);
+        alert(`Conta criada com sucesso para ${nomeDigitado}! Entrando na plataforma...`);
+        window.location.href = 'index.html';
+      });
+    });
+  </script>
+</body>
+</html>

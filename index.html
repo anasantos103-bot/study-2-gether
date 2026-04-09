@@ -10,20 +10,27 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
-  <link rel="stylesheet" href="style.claro.css">
+  <link rel="stylesheet" href="base.css">
+  <link rel="stylesheet" href="layout.css">
+  <link rel="stylesheet" href="components.css">
+  <link rel="stylesheet" href="pages.css">
+  <link rel="stylesheet" href="responsive.css">
 </head>
 
 <body class="page-home">
-  <a href="#conteudo">Pular para o conteúdo</a>
+  <a href="#conteudo" class="sr-only">Pular para o conteúdo</a>
 
   <header>
+    <button id="menu-toggle" class="menu-toggle btn btn--icon" aria-label="Abrir menu">
+      ☰
+    </button>
     <h1 class="brand">
       <span class="brand__study">Study</span><span class="brand__rest">2Gether</span>
     </h1>
 
     <nav aria-label="Menu Principal">
       <ul>
-        <li><a href="index.html">Início</a></li>
+        <li><a href="index.html" aria-current="page">Início</a></li>
         <li><a href="biblioteca.html">Biblioteca</a></li>
         <li><a href="salas.html">Salas</a></li>
         <li><a href="comunidade.html">Comunidade</a></li>
@@ -32,39 +39,71 @@
     </nav>
   </header>
 
-  <aside>
-  <div class="sidebar-content">
-    <h3>Meu Perfil</h3>
-  </div>
-
-  <div class="sidebar-user">
-    <details class="profile-menu">
-      <summary class="profile-button">
-        <div class="profile-button__avatar">
-          <img src="https://via.placeholder.com/48" alt="Foto de perfil de Cloud">
+<aside class="sidebar">
+<div class="sidebar-footer">
+  <div class="user-pill-container card-soft">
+    
+    <details class="user-profile-wrapper">
+      <summary class="user-pill-summary" title="Ver opções de perfil">
+        <div class="user-avatar-small">
+          <img src="https://via.placeholder.com/32" alt="Foto">
+          <span class="status-indicator online"></span>
         </div>
-
-        <div class="profile-button__info">
+        <div class="user-text-small">
           <strong>Cloud</strong>
-          <span>Disponível</span>
+          <span>Online</span>
         </div>
       </summary>
 
-      <nav aria-label="Menu do perfil" class="profile-dropdown">
-        <ul>
-          <li><a href="perfil.html">Visualizar perfil</a></li>
-          <li><a href="editar-perfil.html">Editar perfil</a></li>
-        </ul>
+      <nav class="user-popover-menu">
+        <div class="popover-header-area">
+          <a href="editar-perfil.html" class="avatar-edit-link" title="Mudar Avatar">
+            <img src="https://via.placeholder.com/64" alt="Avatar Maior">
+            <div class="edit-overlay"><span class="icon-camera"></span></div>
+          </a>
+        </div>
+        <div class="popover-content">
+          <div class="popover-user-titles">
+            <h4>Cloud</h4>
+          </div>
+          <hr> 
+          <div class="popover-actions">
+            <a href="editar-perfil.html" class="btn-primary-sm">Editar Perfil</a>                        
+            <a href="sair.html" class="btn-subtle-sm" style="color: var(--danger);">Mudar de Conta</a>         
+          </div>
+        </div>
       </nav>
     </details>
-  </div>
-</aside>
 
-      <main id="conteudo">
+    <details class="settings-wrapper">
+      <summary class="user-settings-btn" title="Configurações">
+        ⚙️
+      </summary>
+
+      <nav class="user-popover-menu settings-popover" aria-label="Links Úteis">
+        <div class="popover-content">
+          <hr>
+          <ul class="settings-links-list">
+            <li><a href="#configuracoes">Configurações</a></li>
+            <li><a href="#privacidade">Privacidade</a></li>
+            <li><a href="#termos">Termos de Uso</a></li>
+            <li><a href="#baixar-dados">Baixar meus dados</a></li>
+            <li><a href="#contato">Contato</a></li>          
+          </ul>
+        </div>
+      </nav>
+    </details>
+
+  </div>
+</div>
+</aside>
+  
+  <main id="conteudo">
     <section id="inicio" class="home-page">
-      <div class="section-head">
+      <header class="section-head">
+    <button id="menu-toggle" class="menu-toggle btn btn--icon" aria-label="Abrir menu">
         <h2>Bem-vindo ao Study2Gether</h2>
-      </div>
+      </header>
 
       <section class="home-hero">
         <h3>Estude em grupo, organize sua rotina e evolua junto</h3>
@@ -75,52 +114,48 @@
         </p>
 
         <div class="home-actions">
-          <a href="salas.html" class="home-link-button">Entrar em uma sala</a>
-          <a href="biblioteca.html" class="home-link-button home-link-button--secondary">Explorar materiais</a>
+          <a href="salas.html" class="btn btn--primary">Entrar em uma sala</a>
+          <a href="biblioteca.html" class="btn btn--secondary">Explorar materiais</a>
         </div>
       </section>
 
       <div class="home-grid">
-        <article class="home-card">
-          <h4>Salas de Estudo</h4>
+        <article class="home-card card">
+          <h3>Salas de Estudo</h3>
           <p>Participe de salas com foco, pomodoro, chat e colaboração em tempo real.</p>
-          <a href="salas.html" class="home-card-link">Acessar salas</a>
+          <a href="salas.html" class="btn btn--link">Acessar salas</a>
         </article>
 
-        <article class="home-card">
-          <h4>Biblioteca</h4>
+        <article class="home-card card">
+          <h3>Biblioteca</h3>
           <p>Encontre resumos, mapas mentais, PDFs e outros materiais organizados por disciplina.</p>
-          <a href="biblioteca.html" class="home-card-link">Abrir biblioteca</a>
+          <a href="biblioteca.html" class="btn btn--link">Abrir biblioteca</a>
         </article>
 
-        <article class="home-card">
-          <h4>Comunidade</h4>
+        <article class="home-card card">
+          <h3>Comunidade</h3>
           <p>Publique dúvidas, responda colegas e acompanhe respostas validadas pela comunidade.</p>
-          <a href="comunidade.html" class="home-card-link">Ver dúvidas</a>
+          <a href="comunidade.html" class="btn btn--link">Ver dúvidas</a>
         </article>
 
-        <article class="home-card">
-          <h4>Calendário</h4>
+        <article class="home-card card">
+          <h3>Calendário</h3>
           <p>Planeje estudos, registre provas e acompanhe compromissos importantes.</p>
-          <a href="calendario.html" class="home-card-link">Abrir calendário</a>
+          <a href="calendario.html" class="btn btn--link">Abrir calendário</a>
         </article>
       </div>
     </section>
   </main>
 
   <footer>
-    <p>&copy; 2026 Study2Gether - Todos os direitos reservados.</p>
 
-    <nav aria-label="Links Úteis">
-      <ul>
-        <li><a href="#privacidade">Política de Privacidade</a></li>
-        <li><a href="#termos">Termos de Uso</a></li>
-        <li><a href="#baixar-dados">Baixar meus dados</a></li>
-        <li><a href="#configuracoes">Configurações</a></li>
-        <li><a href="#excluir-conta">Excluir minha conta</a></li>
-        <li><a href="#contato">Contato</a></li>
-      </ul>
     </nav>
   </footer>
+  <div class="overlay" id="overlay"></div>
+  <button id="voltarTopo" class="btn btn--icon" aria-label="Voltar ao topo">⬆</button>
+  <script src="script.js"></script>
+  <script src="db.js"></script>
+  <script src="controller.js"></script>
+
 </body>
 </html>

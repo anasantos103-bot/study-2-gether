@@ -367,47 +367,194 @@
 }
 
 /* =========================
-   CALENDÁRIO
+   CALENDÁRIO EVOLUÍDO
 ========================= */
-.calendar-form {
+.calendar-layout {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-  gap: var(--space-sm);
-  margin-bottom: var(--space-lg);
-}
-
-.calendar-item {
-  padding: var(--space-md);
-  border-left: 3px solid var(--brand-blue);
-  background: var(--panel-soft);
-  border-radius: 0 var(--r-sm) var(--r-sm) 0;
-  margin-bottom: var(--space-sm);
-  transition: transform 0.2s ease;
-}
-
-.calendar-item:hover {
-  transform: translateX(4px); /* Pequeno efeito de interação */
-}
-
-.calendar-item h4 {
-  color: var(--text);
-  font-size: var(--ft-base);
-}
-
-/* =========================
-   PERFIL / CONFIGURAÇÕES
-========================= */
-.profile-details {
-  display: grid;
-  grid-template-columns: 150px 1fr;
-  gap: var(--space-xl);
+  grid-template-columns: 1.5fr 1fr;
+  gap: var(--space-lg);
   align-items: start;
 }
 
-/* Melhorado: Sincronização de foco com o base.css */
-.profile-form input:focus, 
-.profile-form textarea:focus {
+@media (max-width: 900px) {
+  .calendar-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Remover bordas escuras e usar um card suave */
+.card-soft {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  padding: var(--space-lg);
+  box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+}
+
+.card-title {
+  margin-bottom: var(--space-md);
+  font-size: var(--ft-lg);
+  color: var(--text);
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 8px;
+}
+
+/* Calendário Visual (Grade) */
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-md);
+}
+
+.calendar-grid-header, .calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 5px;
+  text-align: center;
+}
+
+.calendar-grid-header span {
+  font-weight: bold;
+  font-size: var(--ft-sm);
+  color: var(--text-2);
+  padding-bottom: 10px;
+}
+
+.calendar-grid .day-cell {
+  background: var(--panel-soft);
+  border-radius: var(--r-sm);
+  min-height: 80px;
+  padding: 5px;
+  border: 1px solid transparent;
+  transition: border 0.2s;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.calendar-grid .day-cell:hover {
+  border-color: var(--brand-blue);
+}
+
+.calendar-grid .day-cell.today {
+  background: rgba(58, 123, 255, 0.1);
+  border: 1px solid var(--brand-blue);
+}
+
+.day-number {
+  font-weight: 600;
+  font-size: var(--ft-sm);
+  margin-bottom: 4px;
+}
+
+.event-dot {
+  background: var(--brand-blue);
+  color: white;
+  font-size: 0.65rem;
+  padding: 2px 4px;
+  border-radius: 4px;
+  margin-bottom: 2px;
+  width: 100%;
+  text-align: left;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Formulário Organizado */
+.calendar-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.form-row-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-sm);
+}
+
+.form-group label {
+  font-size: var(--ft-sm);
+  font-weight: 600;
+  color: var(--text-2);
+}
+
+.form-group input, .form-group select {
+  padding: 10px;
+  border: 1px solid var(--border);
+  border-radius: var(--r-sm);
+  background: var(--panel-soft);
+  color: var(--text);
+}
+
+.form-group input:focus, .form-group select:focus {
   border-color: var(--brand-blue);
   outline: none;
-  box-shadow: 0 0 0 3px rgba(58, 123, 255, 0.15); /* Sombra mais visível */
 }
+
+/* Lista de Eventos e Sistema de Concluído */
+.calendar-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+.calendar-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: var(--space-md);
+  background: var(--panel-soft);
+  border-radius: var(--r-sm);
+  margin-bottom: var(--space-sm);
+  border-left: 4px solid var(--brand-blue);
+  transition: all 0.3s ease;
+}
+
+/* Estado de CONCLUÍDO */
+.calendar-item.concluido {
+  opacity: 0.5;
+  border-left-color: var(--brand-green, #2ecc71);
+}
+.calendar-item.concluido h4 {
+  text-decoration: line-through;
+}
+
+.item-checkbox input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+  accent-color: var(--brand-green, #2ecc71);
+  margin-top: 2px;
+}
+
+.item-content h4 {
+  margin: 0 0 5px 0;
+  font-size: var(--ft-base);
+}
+
+.item-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  font-size: 0.75rem;
+  color: var(--text-2);
+  align-items: center;
+}
+
+.badge {
+  padding: 2px 6px;
+  border-radius: 4px;
+  color: white;
+  font-weight: bold;
+}
+.badge-estudo { background: var(--brand-blue); }
+.badge-prova { background: #e74c3c; }

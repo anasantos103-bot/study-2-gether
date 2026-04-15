@@ -98,67 +98,98 @@
 </div>
 </aside>
 
-  <main id="conteudo">
+<main id="conteudo">
     <section id="calendario" class="calendar-page">
       <div class="section-head">
         <h2>Calendário de Estudos</h2>
+        <p>Planeje seus dias e acompanhe seu progresso.</p>
       </div>
 
-      <fieldset class="calendar-form-card">
-        <legend>Novo compromisso</legend>
+      <div class="calendar-layout">
+        
+        <div class="calendar-visual card-soft">
+          <div class="calendar-header">
+            <button id="prev-month" class="btn btn--icon">&lt;</button>
+            <h3 id="month-year">Março 2026</h3>
+            <button id="next-month" class="btn btn--icon">&gt;</button>
+          </div>
+          
+          <div class="calendar-grid-header">
+            <span>Dom</span><span>Seg</span><span>Ter</span><span>Qua</span><span>Qui</span><span>Sex</span><span>Sáb</span>
+          </div>
+          
+          <div class="calendar-grid" id="calendar-grid"></div>
+        </div>
 
-        <form class="calendar-form">
-          <label for="titulo-evento">Título:</label>
-          <input
-            type="text"
-            id="titulo-evento"
-            name="titulo-evento"
-            placeholder="Ex: Revisão de Matemática"
-          >
+        <div class="calendar-sidebar">
+          
+          <div class="calendar-form-card card-soft">
+            <h3 class="card-title">Novo compromisso</h3>
+            <form class="calendar-form" id="form-add-evento">
+              <div class="form-group">
+                <label for="titulo-evento">Título do Evento</label>
+                <input type="text" id="titulo-evento" placeholder="Ex: Revisão de Matemática" required>
+              </div>
 
-          <label for="data-evento">Data:</label>
-          <input
-            type="date"
-            id="data-evento"
-            name="data-evento"
-          >
+              <div class="form-row-2">
+                <div class="form-group">
+                  <label for="data-evento">Data</label>
+                  <input type="date" id="data-evento" required>
+                </div>
+                <div class="form-group">
+                  <label for="hora-evento">Hora</label>
+                  <input type="time" id="hora-evento">
+                </div>
+              </div>
 
-          <label for="hora-evento">Hora:</label>
-          <input
-            type="time"
-            id="hora-evento"
-            name="hora-evento"
-          >
+              <div class="form-group">
+                <label for="tipo-evento">Tipo</label>
+                <select id="tipo-evento">
+                  <option value="Estudo">Estudo</option>
+                  <option value="Prova">Prova</option>
+                  <option value="Trabalho">Trabalho</option>
+                  <option value="Reunião">Reunião</option>
+                </select>
+              </div>
 
-          <label for="tipo-evento">Tipo:</label>
-          <select id="tipo-evento" name="tipo-evento">
-            <option>Estudo</option>
-            <option>Prova</option>
-            <option>Trabalho</option>
-            <option>Reunião</option>
-          </select>
+              <button type="submit" class="btn-primary" style="width: 100%; margin-top: 10px;">Adicionar Evento</button>
+            </form>
+          </div>
 
-          <button type="submit">Adicionar</button>
-        </form>
-      </fieldset>
+          <div class="calendar-list card-soft" id="lista-eventos">
+            <h3 class="card-title">Próximos eventos</h3>
 
-      <fieldset class="calendar-list">
-        <legend>Próximos eventos</legend>
+            <article class="calendar-item">
+              <div class="item-checkbox">
+                <input type="checkbox" class="check-concluido" title="Marcar como concluído">
+              </div>
+              <div class="item-content">
+                <h4>Revisão de Física</h4>
+                <div class="item-meta">
+                  <span>📅 18/03/2026</span>
+                  <span>⏰ 19:00</span>
+                  <span class="badge badge-estudo">Estudo</span>
+                </div>
+              </div>
+            </article>
 
-        <article class="calendar-item">
-          <h4>Revisão de Física</h4>
-          <p><strong>Data:</strong> 18/03/2026</p>
-          <p><strong>Hora:</strong> 19:00</p>
-          <p><strong>Tipo:</strong> Estudo</p>
-        </article>
+            <article class="calendar-item">
+              <div class="item-checkbox">
+                <input type="checkbox" class="check-concluido" title="Marcar como concluído">
+              </div>
+              <div class="item-content">
+                <h4>Simulado de Matemática</h4>
+                <div class="item-meta">
+                  <span>📅 20/03/2026</span>
+                  <span>⏰ 08:00</span>
+                  <span class="badge badge-prova">Prova</span>
+                </div>
+              </div>
+            </article>
 
-        <article class="calendar-item">
-          <h4>Simulado de Matemática</h4>
-          <p><strong>Data:</strong> 20/03/2026</p>
-          <p><strong>Hora:</strong> 08:00</p>
-          <p><strong>Tipo:</strong> Prova</p>
-        </article>
-      </fieldset>
+          </div>
+        </div>
+      </div>
     </section>
   </main>
 

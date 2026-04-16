@@ -290,49 +290,223 @@
   color: var(--brand-blue);
 }
 /* =========================
-   COMUNIDADE
+   COMUNIDADE: LAYOUT E SIDEBAR FIXA
 ========================= */
 .qa-layout {
   display: grid;
-  grid-template-columns: 1fr 350px;
-  gap: var(--space-lg);
+  grid-template-columns: 320px 1fr; /* Esquerda: Postagem | Direita: Feed */
+  gap: var(--space-xl, 24px);
+  align-items: start; /* OBRIGATÓRIO para o sticky funcionar */
+}
+
+/* Sidebar Fixa na Esquerda */
+.qa-compose {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 90px; /* Ajuste se o menu do site sobrepor */
+  height: max-content;
+  z-index: 10;
+}
+
+@media (max-width: 900px) {
+  .qa-layout {
+    grid-template-columns: 1fr; /* Em telas menores, fica um embaixo do outro */
+  }
+  .qa-compose {
+    position: relative;
+    top: 0;
+  }
+}
+
+/* =========================
+   BORDAS CLARAS E SUAVES
+========================= */
+.card-soft {
+  background: #ffffff;
+  border: 1px solid #e2e8f0; /* Borda bem clarinha */
+  border-radius: 12px; /* Mais arredondado */
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04); /* Sombra muito suave */
+  margin-bottom: 20px;
+  transition: box-shadow 0.2s ease;
+}
+.card-soft:hover {
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+}
+
+/* =========================
+   CORES VIBRANTES (STATUS)
+========================= */
+.badges-group {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+.badge {
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 0.7rem;
+  font-weight: 800;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+/* Tons Super Vibrantes */
+.badge--open { background-color: #007BFF; }     /* Azul Vivo */
+.badge--solved { background-color: #00CC66; }   /* Verde Vivo */
+.badge--warning { background-color: #FF9900; }  /* Laranja/Amarelo Vivo */
+.badge--mentor { background-color: #9933FF; }   /* Roxo Vivo */
+
+/* =========================
+   INTERAÇÕES E RESPOSTAS
+========================= */
+.qa-body {
+  font-size: 0.95rem;
+  color: #444;
+  margin-bottom: 15px;
+  line-height: 1.5;
+}
+
+.qa-actions-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid #f0f0f0;
+  padding-top: 12px;
+}
+
+/* Botões de exibição */
+.answer-controls button {
+  background: none;
+  border: none;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-left: 10px;
+  transition: opacity 0.2s;
+}
+.answer-controls button:hover { opacity: 0.7; }
+.btn-show-best { color: #d4af37; } /* Dourado */
+.btn-show-all { color: #4A90E2; } /* Azul da marca */
+
+/* Design das Respostas */
+.best-answer-box {
+  margin-top: 15px;
+  background: #fffdf5; /* Fundo levemente amarelado */
+  border: 1px solid #fce8a1;
+  border-radius: 8px;
+  padding: 15px;
+}
+.best-answer-box h4 {
+  color: #b8860b;
+  margin: 0 0 10px 0;
+  font-size: 0.9rem;
+}
+
+.answer-item {
+  background: #f8fafc; /* Fundo cinza clarinho/azulado */
+  border-left: 3px solid #cbd5e1;
+  padding: 10px 15px;
+  border-radius: 0 6px 6px 0;
+  margin-bottom: 10px;
+  font-size: 0.9rem;
+}
+
+/* Botão Curtir (Like) */
+.btn-like {
+  background: none;
+  border: 1px solid #eaeaea;
+  border-radius: 20px;
+  padding: 3px 10px;
+  font-size: 0.8rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: #666;
+  background: #fff;
+  transition: all 0.2s;
+}
+.btn-like.liked {
+  border-color: #ff4757;
+  color: #ff4757;
+  background: #ffecec;
+}
+
+/* Input nova resposta */
+.reply-form {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+}
+.reply-input {
+  flex: 1;
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-family: inherit;
+}
+/* =========================
+   VISUAL DAS CAIXAS
+========================= */
+.card-soft {
+  background: var(--panel, #ffffff);
+  border: 1px solid var(--border, #e0e0e0);
+  border-radius: var(--r-md, 8px);
+  padding: var(--space-lg, 20px);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  margin-bottom: var(--space-md, 16px);
+  transition: all 0.2s ease;
 }
 
 .qa-post {
+  cursor: pointer;
+  border-left: 4px solid var(--brand-blue, #4A90E2);
+}
+.qa-post.solved {
+  border-left-color: var(--brand-green, #2ecc71);
+}
+.qa-post:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+}
+
+/* Espaço de Respostas */
+.qa-answer-box {
+  margin-top: 15px;
+  background: var(--panel-soft, #f8f9fa);
+  padding: 15px;
+  border-radius: var(--r-sm, 6px);
+  cursor: default; /* Impede que clique no texto recolha o card inteiro */
+}
+
+.resposta-item {
+  background: var(--panel, #ffffff);
+  padding: 12px;
+  border-radius: var(--r-sm, 6px);
+  border-left: 3px solid var(--text-3, #999);
+  margin-bottom: 10px;
+  font-size: var(--ft-sm, 0.9rem);
+  color: var(--text-2, #555);
+}
+
+.form-resposta {
   display: flex;
   flex-direction: column;
-  gap: var(--space-sm);
-  margin-bottom: var(--space-md);
-  padding: var(--space-md);
-  border-bottom: 1px solid var(--border);
+  gap: 8px;
+  margin-top: 15px;
 }
-
-.qa-post-top {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
+.form-resposta textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid var(--border, #ccc);
+  border-radius: var(--r-sm, 6px);
+  resize: vertical;
+  font-family: inherit;
 }
-
-.qa-meta {
-  color: var(--text-3);
-  font-size: var(--ft-xs);
+.form-resposta button {
+  align-self: flex-end; /* Joga o botão de enviar resposta para a direita */
 }
-
-.qa-cta {
-  color: var(--brand-blue);
-  font-weight: 600;
-  background: none;
-  border: none;
-  cursor: pointer;
-  text-align: left;
-  padding: 0;
-  transition: opacity 0.2s ease;
-}
-
-.qa-cta:hover {
-  opacity: 0.7; /* Feedback visual simples para o clique */
-}
-
 /* =========================
    SALAS DE ESTUDO
 ========================= */

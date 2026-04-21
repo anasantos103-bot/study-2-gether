@@ -6,7 +6,7 @@ const dadosLogado = localStorage.getItem('estudante_logado');
 let usuarioLogado = null;
 
 // Tenta interpretar os dados do usuário
-if (dadosLogado) {
+if (dadosLogado) { 
     usuarioLogado = JSON.parse(dadosLogado);
 }
 

@@ -2,7 +2,7 @@
    Study2Gether — Components 
 ========================= */
 
-/* 1. CARDS REUTILIZÁVEIS */
+/* 1. CARDS REUTILIZÁVEIS */ 
 .card, .card-soft {
   border: 1px solid var(--border);
   border-radius: var(--r-sm);

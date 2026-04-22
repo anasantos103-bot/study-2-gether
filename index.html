@@ -223,15 +223,15 @@
           const usuarios = await db.buscarTodos();
 
           if (modoCriarConta) {
-              // LÓGICA DE CRIAR CONTA
+              // LÓGICA DE CRIAR CONTA (Com travas de segurança)
               const usuarioExiste = usuarios.find(u =>
-                  u.nome.toLowerCase() === nome.toLowerCase() ||
-                  u.email.toLowerCase() === email.toLowerCase()
+                  (u.nome && u.nome.toLowerCase() === nome.toLowerCase()) ||
+                  (u.email && u.email.toLowerCase() === email.toLowerCase())
               );
               
               if (usuarioExiste) {
                   msgErro.style.display = 'block';
-                  msgErro.innerText = usuarioExiste.email.toLowerCase() === email.toLowerCase()
+                  msgErro.innerText = (usuarioExiste.email && usuarioExiste.email.toLowerCase() === email.toLowerCase())
                       ? "Este e-mail já está em uso."
                       : "Este nome de usuário já está em uso.";
                   return;
@@ -256,11 +256,12 @@
               window.location.href = 'home.html'; // Redirecionar para home
 
           } else {
-              // LÓGICA DE LOGIN
-              // Procura se o nome/email e a senha batem com o banco de dados
+              // LÓGICA DE LOGIN (Com travas de segurança)
               const usuario = usuarios.find(u =>
-                  (u.nome.toLowerCase() === nome.toLowerCase() || u.email.toLowerCase() === nome.toLowerCase()) &&
-                  u.senha === senha
+                  (
+                      (u.nome && u.nome.toLowerCase() === nome.toLowerCase()) || 
+                      (u.email && u.email.toLowerCase() === nome.toLowerCase())
+                  ) && u.senha === senha
               );
 
               if (usuario) {

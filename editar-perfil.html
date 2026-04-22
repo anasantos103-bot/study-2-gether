@@ -1,0 +1,161 @@
+﻿<!DOCTYPE html>
+<html lang="pt-br">
+<head> 
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Study2Gether | Editar Perfil</title>
+  <meta name="description" content="Edite suas informações no Study2Gether.">
+  <link rel="stylesheet" href="./css/base.css">
+  <link rel="stylesheet" href="./css/layout.css">
+  <link rel="stylesheet" href="./css/components.css">
+  <link rel="stylesheet" href="./css/pages.css">
+  <link rel="stylesheet" href="./css/responsive.css">
+</head>
+
+<body>
+  <a href="#conteudo">Pular para o conteúdo</a>
+
+  <header>
+    <button id="menu-toggle" class="menu-toggle btn btn--icon" aria-label="Abrir menu">
+      ☰
+    </button>
+    <h1 class="brand">
+      <span class="brand__study">Study</span><span class="brand__rest">2Gether</span>
+    </h1>
+
+    <nav aria-label="Menu Principal">
+      <ul>
+<script src="./js/auth.js"></script>
+  <script src="./js/db.js"></script>
+  <script src="./js/controller.js"></script>
+  <script src="./js/ui.js"></script>
+  <script src="./js/library.js"></script>
+  <script src="./js/community.js"></script>
+  <script src="./js/calendar.js"></script>
+  <script src="./js/rooms.js"></script>
+    </nav>
+  </header>
+
+<aside class="sidebar">
+<div class="sidebar-footer">
+  <div class="user-pill-container card-soft">
+    
+    <details class="user-profile-wrapper">
+      <summary class="user-pill-summary" title="Ver opções de perfil">
+        <div class="user-avatar-small">
+          <img src="https://via.placeholder.com/32" alt="Foto">
+          <span class="status-indicator online"></span>
+        </div>
+        <div class="user-text-small">
+          <strong>Cloud</strong>
+          <span>Online</span>
+        </div>
+      </summary>
+
+      <nav class="user-popover-menu">
+        <div class="popover-header-area">
+          <a href="editar-perfil.html" class="avatar-edit-link" title="Mudar Avatar">
+            <img src="https://via.placeholder.com/64" alt="Avatar Maior">
+            <div class="edit-overlay"><span class="icon-camera"></span></div>
+          </a>
+        </div>
+        <div class="popover-content">
+          <div class="popover-user-titles">
+            <h4>Cloud</h4>
+          </div>
+          <hr> 
+          <div class="popover-actions">
+            <a href="editar-perfil.html" class="btn-primary-sm">Editar Perfil</a>                        
+            <a href="sair.html" class="btn-subtle-sm" style="color: var(--danger);">Mudar de Conta</a>         
+          </div>
+        </div>
+      </nav>
+    </details>
+
+    <details class="settings-wrapper">
+      <summary class="user-settings-btn" title="Configurações">
+        ⚙️
+      </summary>
+
+      <nav class="user-popover-menu settings-popover" aria-label="Links Úteis">
+        <div class="popover-content">
+          <hr>
+          <ul class="settings-links-list">
+            <li><a href="#configuracoes">Configurações</a></li>
+            <li><a href="#privacidade">Privacidade</a></li>
+            <li><a href="#termos">Termos de Uso</a></li>
+            <li><a href="#baixar-dados">Baixar meus dados</a></li>
+            <li><a href="#contato">Contato</a></li>          
+          </ul>
+        </div>
+      </nav>
+    </details>
+
+  </div>
+</div>
+</aside>
+
+  <main id="conteudo">
+    <section class="profile-page">
+      <div class="section-head">
+        <h2>Editar Perfil</h2>
+        <p>Atualize suas informações pessoais.</p>
+      </div>
+
+      <fieldset class="profile-card">
+        <legend>Informações do usuário</legend>
+
+        <form class="profile-form" id="form-perfil">
+          
+          <div>
+            <label for="nome">Nome</label>
+            <input type="text" id="nome" value="Cloud">
+          </div>
+
+          <div>
+            <label for="status">Status</label>
+            <input type="text" id="status" value="Focado">
+          </div>
+
+          <div>
+            <label for="instituicao">Instituição</label>
+            <input type="text" id="instituicao" placeholder="Ex: IFTO, UFT">
+          </div>
+
+          <div>
+            <label for="curso">Curso</label>
+            <input type="text" id="curso" placeholder="Ex: Engenharia, ADS">
+          </div>
+
+          <div>
+            <label for="semestre">Semestre</label>
+            <input type="text" id="semestre" placeholder="Ex: 1º, 2º">
+          </div>
+
+          <div>
+            <label for="interesses">Interesses</label>
+            <textarea id="interesses" placeholder="Ex: programação, matemática"></textarea>
+          </div>
+
+          <button type="submit" class="btn-primary">Salvar alterações</button>
+
+        </form>
+      </fieldset>
+    </section>
+  </main>
+
+  <footer>
+  </footer>
+  <div class="overlay" id="overlay"></div>
+  <button id="voltarTopo" class="btn btn--icon" aria-label="Voltar ao topo">⬆</button>
+    <script src="./js/auth.js"></script>
+    <script src="./js/ui.js"></script>
+    <script src="./js/library.js"></script>
+    <script src="./js/community.js"></script>
+    <script src="./js/calendar.js"></script>
+    <script src="./js/rooms.js"></script>
+  <script src="./db.js"></script>
+  <script src="./controller.js"></script>
+
+</body>
+</html>

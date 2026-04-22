@@ -1,0 +1,224 @@
+/* =========================
+   Study2Gether — Base (V2.0 Corrigido)
+========================= */
+
+/* 1. TOKENS GLOBAIS */
+:root {
+  /* Brand & Semantic Colors */
+  --brand-blue:   #3A7BFF;
+  --brand-green:  #3ED1A5;  
+  --brand-purple: #6A4DFF;
+  
+  /* CORREÇÃO (Ponto 3): Sincronização de nomes */
+  /* Criamos este apelido para que o components.css não quebre */
+  --primary-color: var(--brand-blue); 
+  --primary-light: var(--hover);
+
+  --success:      #22C55E;
+  --danger:       #EF4444;
+  --warning:      #F59E0B;
+  --info:         #3A7BFF;
+  --mentor:       #6A4DFF;
+
+  /* UI Colors (Light Theme) */
+  --bg:           #F7F9FC;
+  --panel:        #FFFFFF;
+  --panel-soft:   #FBFCFF;
+  --border:       #E3E8EF;
+  --hover:        #F1F5FF;
+  --active:       #EAF0FF;
+
+  /* Text Colors */
+  --text:         #1F2A37;
+  --text-2:       #6B7280;
+  --text-3:       #9CA3AF;
+
+  /* Spacing System */
+  --space-xs:     0.25rem; /* 4px */
+  --space-sm:     0.5rem;  /* 8px */
+  --space-md:     1rem;    /* 16px */
+  --space-lg:     1.5rem;  /* 24px */
+  --space-xl:     2rem;    /* 32px */
+
+  /* Typography */
+  --ft-xs:        0.75rem;
+  --ft-sm:        0.875rem;
+  --ft-base:      1rem;
+  --ft-lg:        1.25rem;
+  --ft-xl:        1.5rem;
+
+  /* Borders & Shadows */
+  --r-xs:         6px;
+  --r-sm:         8px;
+  --r-md:         12px;
+  --shadow:       0 10px 30px rgba(0,0,0,.05);
+  --shadow-sm:    0 6px 18px rgba(0,0,0,.05);
+
+  /* Gradients */
+  --grad:         linear-gradient(135deg, var(--brand-purple), var(--brand-blue), var(--brand-green));
+  --grad-soft:    linear-gradient(135deg, #7C63FF, #4A8DFF, #42D6B0);
+}
+
+/* 2. DARK MODE SUPORTE */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg:         #0B0E14;
+    --panel:      #151921;
+    --panel-soft: #1A202A;
+    --border:     #2D333D;
+    --hover:      #1C222D;
+    --active:     #242C39;
+    --text:       #F5F7FA;
+    --text-2:     #949BA4;
+    --text-3:     #4F5660;
+    --shadow:     0 10px 30px rgba(0,0,0,.3);
+    --shadow-sm:  0 6px 18px rgba(0,0,0,.22);
+  }
+}
+
+/* 3. RESET & BASE ESTILOS */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: ui-sans-serif, system-ui, -apple-system, sans-serif;
+  font-size: var(--ft-base);
+  line-height: 1.6;
+  color: var(--text);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 4. ACESSIBILIDADE */
+a[href="#conteudo"] {
+  position: absolute;
+  left: -9999px;
+  top: var(--space-sm);
+  background: var(--brand-blue);
+  color: #fff;
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--r-xs);
+  z-index: 10000;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+a[href="#conteudo"]:focus {
+  left: var(--space-md);
+}
+
+/* CORREÇÃO (Ponto 1): Classe global para estado Ativo/Selecionado */
+.is-active, .active {
+  background-color: var(--active) !important;
+  color: var(--brand-blue) !important;
+  border-left: 3px solid var(--brand-blue);
+}
+
+/* 5. ELEMENTOS DE MÍDIA */
+img, video, iframe {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* 6. FORMULÁRIOS GLOBAIS */
+label {
+  display: block;
+  margin: var(--space-sm) 0 var(--space-xs);
+  color: var(--text-2);
+  font-size: var(--ft-sm);
+  font-weight: 500;
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: var(--space-sm) var(--space-md);
+  font-family: inherit;
+  font-size: var(--ft-sm);
+  border: 1px solid var(--border);
+  border-radius: var(--r-xs);
+  background: var(--panel);
+  color: var(--text);
+  transition: border-color .15s ease, box-shadow .15s ease;
+}
+
+input:focus, select:focus, textarea:focus {
+  outline: none;
+  border-color: var(--brand-blue);
+  box-shadow: 0 0 0 3px rgba(58, 123, 255, 0.15);
+}
+
+/* 7. BOTÕES GLOBAIS */
+button, .btn-base {
+  font-family: inherit;
+  font-size: var(--ft-sm);
+  font-weight: 600;
+  line-height: 1.35;
+  padding: var(--space-sm) var(--space-md);
+  border: 1px solid var(--border);
+  border-radius: var(--r-xs);
+  background: var(--panel);
+  color: var(--text);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  transition: all .15s ease;
+}
+
+button:hover {
+  background: var(--hover);
+  border-color: var(--text-3);
+}
+
+button:active {
+  background: var(--active);
+  transform: translateY(1px);
+}
+
+/* Botão de Destaque (Submit) */
+button[type="submit"], .btn-primary {
+  background: var(--brand-blue);
+  color: #FFFFFF;
+  border-color: transparent;
+}
+
+button[type="submit"]:hover {
+  filter: brightness(1.1);
+  background: var(--brand-blue);
+}
+
+/* 8. TABELAS GLOBAIS */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid var(--border);
+  border-radius: var(--r-sm);
+  overflow: hidden;
+  background: var(--panel);
+}
+
+th, td {
+  border-bottom: 1px solid var(--border);
+  padding: var(--space-md);
+  text-align: left;
+}
+
+thead th {
+  background: var(--panel-soft);
+  color: var(--text-2);
+  font-size: var(--ft-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}

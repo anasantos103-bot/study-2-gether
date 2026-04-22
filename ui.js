@@ -1,7 +1,7 @@
 // ==========================================
 // 🚀 UTILITÁRIOS GLOBAIS (UI)
 // ==========================================
-
+ 
 // --- BOTÃO VOLTAR AO TOPO ---
 const botaoTopo = document.getElementById("voltarTopo");
 if (botaoTopo) {

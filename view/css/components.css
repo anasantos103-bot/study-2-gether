@@ -1,0 +1,231 @@
+/* =========================
+   Study2Gether — Components 
+========================= */
+
+/* 1. CARDS REUTILIZÁVEIS */ 
+.card, .card-soft {
+  border: 1px solid var(--border);
+  border-radius: var(--r-sm);
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.2s ease;
+}
+
+.card { background: var(--panel); }
+.card-soft { background: var(--panel-soft); }
+.card:hover { transform: translateY(-2px); }
+
+/* 2. BADGES (ETIQUETAS) */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 1.5rem;
+  padding: 0 var(--space-sm);
+  border: 1px solid transparent;
+  border-radius: var(--r-xs);
+  font-size: var(--ft-xs);
+  font-weight: 700;
+  letter-spacing: .02em;
+  white-space: nowrap;
+}
+
+.badge--open    { background: rgba(58, 123, 255, 0.1); border-color: rgba(58, 123, 255, 0.2); color: var(--brand-blue); }
+.badge--solved  { background: rgba(34, 197, 94, 0.1);  border-color: rgba(34, 197, 94, 0.2);  color: var(--success); }
+.badge--warning { background: rgba(245, 158, 11, 0.1); border-color: rgba(245, 158, 11, 0.2); color: var(--warning); }
+.badge--mentor  { background: rgba(106, 77, 255, 0.1); border-color: rgba(106, 77, 255, 0.2); color: var(--mentor); }
+
+/* 3. BOTÕES (VARIAÇÕES) */
+.btn--secondary { background: var(--brand-purple); color: #FFFFFF; border: none; }
+.btn--success   { background: var(--brand-green); color: #02160F; border: none; }
+.btn--gradient  { background: var(--grad); color: #FFFFFF; border: none; }
+.btn--block     { display: flex; width: 100%; justify-content: center; text-decoration: none; padding: 8px; border-radius: 4px; }
+
+/* ==============================================
+   4. WIDGET DE USUÁRIO (FOOTER SIDEBAR) 
+   Versão Achatada e Popovers de Perfil/Config
+============================================== */
+
+.sidebar-footer {
+  margin-top: auto; 
+  padding: 10px; /* Adiciona um pequeno respiro interno no rodapé da sidebar */
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.user-pill-container {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  padding: 1px 2px;
+  border-radius: 6px;
+  background-color: var(--panel-soft);
+  border: 1px solid var(--border);
+  position: relative;
+  
+  /* AJUSTE AQUI: Use calc para dar uma margem de segurança */
+  width: 100%; /* Agora ele ocupa o espaço disponível na sidebar */
+  box-sizing: border-box; /* ESSENCIAL: impede que o padding estique a largura */
+  
+  max-width: 220px;
+  height: 40px; 
+}
+
+/* --- BOTÃO 1: PERFIL --- */
+.user-profile-wrapper {
+  flex: 1;
+  list-style: none;
+}
+
+.user-pill-summary {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 2px 4px;
+  cursor: pointer;
+  list-style: none;
+  transition: background 0.2s;
+  border-radius: 4px;
+  height: 34px; 
+}
+
+.user-pill-summary::-webkit-details-marker { display: none; }
+.user-pill-summary:hover { background-color: rgba(0, 0, 0, 0.08); }
+
+.user-avatar-small {
+  width: 26px; height: 26px; 
+  border-radius: 50%;
+  position: relative;
+  flex-shrink: 0;
+}
+.user-avatar-small img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
+
+.user-text-small {
+  display: flex; flex-direction: column;
+  line-height: 1;
+  min-width: 0;
+}
+.user-text-small strong { 
+  font-size: 0.75rem; 
+  color: var(--text); 
+  white-space: nowrap; 
+  overflow: hidden; 
+  text-overflow: ellipsis; 
+}
+.user-text-small span { font-size: 0.6rem; color: var(--success); }
+
+/* --- BOTÃO 2: CONFIGURAÇÕES (⚙️) --- */
+.settings-wrapper {
+  list-style: none;
+}
+.settings-wrapper summary::-webkit-details-marker { display: none; }
+
+.user-settings-btn {
+  background: transparent;
+  border: none;
+  font-size: 0.9rem;
+  color: var(--text-3);
+  cursor: pointer;
+  width: 30px; height: 30px;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  border-radius: 4px;
+  transition: all 0.2s;
+}
+.user-settings-btn:hover { 
+  background-color: rgba(0, 0, 0, 0.08); 
+  color: var(--brand-blue); 
+}
+
+/* --- POPOVERS (MENUS FLUTUANTES) --- */
+.user-popover-menu {
+  position: absolute;
+  bottom: calc(100% + 6px); 
+  left: 50%;
+  transform: translateX(-50%);
+  width: 220px;
+  background: var(--panel);
+  border-radius: var(--r-md);
+  box-shadow: var(--shadow);
+  z-index: 100;
+  border: 1px solid var(--border);
+  overflow: hidden;
+}
+
+/* Ajuste específico para o popover de configurações (abrir alinhado à direita) */
+.settings-popover {
+  right: 0;
+  left: auto;
+  transform: none;
+  width: 200px;
+}
+
+.popover-header-area { padding: 12px 12px 0 12px; display: flex; justify-content: center; }
+.popover-content { padding: 10px 12px 12px 12px; text-align: center; }
+
+.popover-title {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--text-3);
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 4px;
+}
+
+/* Avatar no Popover */
+.avatar-edit-link {
+  display: block; width: 54px; height: 54px;
+  border-radius: 50%; position: relative; margin: 0 auto;
+}
+.avatar-edit-link img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
+
+/* Lista de Links no Popover de Configurações */
+.settings-links-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  text-align: left;
+}
+
+.settings-links-list li a {
+  display: block;
+  padding: 8px 10px;
+  color: var(--text-2);
+  text-decoration: none;
+  font-size: 0.8rem;
+  border-radius: 4px;
+  transition: background 0.2s;
+}
+
+.settings-links-list li a:hover {
+  background-color: var(--hover);
+  color: var(--brand-blue);
+}
+
+.settings-links-list .link-danger {
+  color: #e74c3c !important; /* Cor de erro/alerta */
+}
+
+.settings-links-list .link-danger:hover {
+  background-color: rgba(231, 76, 60, 0.05) !important;
+}
+
+/* Botões do Popover de Perfil */
+.btn-primary-sm {
+  display: block; width: 100%; padding: 6px;
+  background-color: var(--brand-blue); color: white;
+  border-radius: 4px; text-decoration: none; font-size: 0.75rem; font-weight: 600;
+}
+.btn-subtle-sm {
+  display: block; width: 100%; padding: 6px; margin-top: 4px;
+  background-color: var(--hover); color: var(--text-2);
+  border-radius: 4px; text-decoration: none; font-size: 0.75rem;
+}
+
+/* Status dots */
+.status-indicator {
+  position: absolute; bottom: 0; right: 0;
+  width: 8px; height: 8px; border-radius: 50%;
+  border: 1.5px solid var(--panel-soft);
+}
+.status-indicator.online { background-color: var(--success); }

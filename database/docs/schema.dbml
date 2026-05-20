@@ -1,0 +1,37 @@
+// Tabela de Usuários
+Table users {
+  id integer [primary key, increment]
+  nome varchar(100) [not null]
+  email varchar(150) [unique, not null]
+  senha varchar(255) [not null]
+}
+
+// Materiais de Estudo
+Table study_materials {
+  id integer [primary key, increment]
+  titulo varchar(200) [not null]
+  url_ou_conteudo text [not null]
+  tipo varchar(20) [not null]
+  usuario_id integer [not null]
+}
+
+// Calendário de Eventos
+Table calendar {
+  id integer [primary key, increment]
+  titulo_evento varchar(150) [not null]
+  data_hora datetime [not null]
+  usuario_id integer [not null]
+}
+
+// Sistema de XP
+Table xp_levels {
+  id integer [primary key, increment]
+  valor_xp integer [not null, default: 0]
+  nivel integer [not null, default: 1]
+  usuario_id integer [not null]
+}
+
+// Relacionamentos (Chaves Estrangeiras)
+Ref: study_materials.usuario_id > users.id
+Ref: calendar.usuario_id > users.id
+Ref: xp_levels.usuario_id - users.id
